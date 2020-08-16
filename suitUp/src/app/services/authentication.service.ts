@@ -14,7 +14,7 @@ export class AuthenticationService {
     public accessToken: string; // JWT token
     public redirectUrl = '/';
     public loggedIn: boolean = false;
-    private authenticationApiUrl = environment.baseUrl + 'auth-service/';
+    private authenticationApiUrl = `${environment.baseUrl}authenticate`;
     private token: string;
     public username: string;
     public userId = 0;
@@ -38,7 +38,7 @@ export class AuthenticationService {
     authenticate(user: string, password: string): Observable<any> {
         let headers = new HttpHeaders();
         headers = headers.set('Authorization', 'Basic ' + btoa(user + ':' + password));
-        return this.httpClient.get(this.authenticationApiUrl + "authenticate", { headers })
+        return this.httpClient.get(this.authenticationApiUrl, { headers })
     }
 
     public logout(): void {

@@ -10,7 +10,7 @@ import { User } from '../models/user';
 })
 export class SignUpService {
 
-    public url: string = environment.baseUrl + "user-service/";
+    public url: string = environment.baseUrl + "signUp";
     public isBussiness: boolean;
     constructor(private _httpClient: HttpClient) { }
 
@@ -18,6 +18,6 @@ export class SignUpService {
 
         console.log("Inside add user of service ")
         console.log(user)
-        return this._httpClient.post<any>(this.url + "signUp", user)
+        return this._httpClient.post<any>(this.url, user)
     }
 }

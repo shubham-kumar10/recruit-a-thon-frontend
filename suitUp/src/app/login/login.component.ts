@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
                     this.authService.loggedIn = true;
                     this.authService.validCredentials = true;
                     this.authService.setUserId();
-                    this.router.navigate(['/search-bar']);
+                    //this.router.navigate(['/search-bar']);
                 },
                 (error) => {
                     this.authService.validCredentials = false;
