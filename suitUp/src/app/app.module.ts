@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { JobcardComponent } from './jobcard/jobcard.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { SideBarComponent } from './side-bar/side-bar.component';
     LoginComponent,
     SignUpComponent,
     NavBarComponent,
-    SideBarComponent
+    SideBarComponent,
+    DashboardComponent,
+    JobcardComponent
   ],
   imports: [
     BrowserModule,
