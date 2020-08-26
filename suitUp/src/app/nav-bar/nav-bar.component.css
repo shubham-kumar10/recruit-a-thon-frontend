@@ -133,7 +133,7 @@ nav.navbar .left-nav input.navbar-search {
     nav.navbar .nav-alert {
         right: 12px;
    }
-    nav.navbar .right-nav {
+   nav.navbar .right-nav {
         height: 100% !important;
         border-top: none;
         background: none !important;

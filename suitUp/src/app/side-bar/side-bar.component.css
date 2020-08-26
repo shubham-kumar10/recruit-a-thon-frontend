@@ -1,4 +1,4 @@
-.sidebar {
+main .sidebar {
     height: 100%;
     width: 260px;
     position: absolute;
@@ -10,6 +10,7 @@
 }
 .sidebar > div {
     border-bottom: 1px solid;
+    color: grey;
 }
 .sidebar > div:last-child {
     border-bottom: none;
@@ -20,25 +21,22 @@
     border-radius: 50%;
     overflow: hidden;
 }
-.sidebar .sidebar-profile .user-picture img {
+main .sidebar .sidebar-profile .user-picture img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
 }
-.sidebar .sidebar-profile .profile-details .name {
+main .sidebar .sidebar-profile .profile-details .name {
     font-size: 0.9rem;
     font-weight: 800;
 }
-.sidebar .sidebar-profile .profile-details .role {
+main .sidebar .sidebar-profile .profile-details .role {
     font-size: 0.7rem;
     letter-spacing: 1px;
     font-weight: 700;
 }
-.sidebar .sidebar-search {
-    display: none;
-}
-.sidebar .sidebar-menu > div {
+main .sidebar .sidebar-menu > div {
     padding: 0 1.5rem;
 }
 .sidebar .sidebar-menu .menu-header {
@@ -52,7 +50,7 @@
     margin: 0;
     padding: 0;
 }
-.sidebar .sidebar-menu ul li {
+main .sidebar .sidebar-menu ul li {
     display: block;
 }
 .sidebar .sidebar-menu ul li a {
@@ -67,7 +65,7 @@
     letter-spacing: 0px;
     font-weight: 600;
 }
-.sidebar .sidebar-menu ul li a i {
+main .sidebar .sidebar-menu ul li a i {
     width: 35px;
     height: 35px;
     text-align: center;
