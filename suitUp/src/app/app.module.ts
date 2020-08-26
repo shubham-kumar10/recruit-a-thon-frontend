@@ -14,6 +14,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { JobcardComponent } from './jobcard/jobcard.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { JobcardComponent } from './jobcard/jobcard.component';
     NavBarComponent,
     SideBarComponent,
     DashboardComponent,
-    JobcardComponent
+    JobcardComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
