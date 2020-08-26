@@ -113,9 +113,6 @@ nav.navbar .left-nav input.navbar-search {
     font-size: 0.9rem;
 }
 @media (min-width: 768px) {
-    nav.navbar .sidebar-toggler {
-        display: none;
-   }
     nav.navbar .navbar-header {
         width: 260px;
         margin-left: 0 !important;

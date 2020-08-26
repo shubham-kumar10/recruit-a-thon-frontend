@@ -85,31 +85,3 @@ main .sidebar .sidebar-menu ul li a i {
         height: 100%;
    }
 }
-@media (min-width: 768px) {
-    .pinned-sidebar .navbar-header {
-        width: 70px !important;
-   }
-    .pinned-sidebar .navbar-header span {
-        display: none !important;
-   }
-    .pinned-sidebar .sidebar {
-        width: 70px;
-   }
-    .pinned-sidebar .sidebar .sidebar-profile .user-picture {
-        width: 40px;
-        height: 40px;
-   }
-    .pinned-sidebar .sidebar .profile-details, .pinned-sidebar .sidebar .menu-header, .pinned-sidebar .sidebar .view-source {
-        display: none;
-   }
-    .pinned-sidebar .sidebar .sidebar-menu ul a {
-        padding: 0.5rem;
-        justify-content: center;
-   }
-    .pinned-sidebar .sidebar .sidebar-menu ul a span {
-        display: none;
-   }
-}
-.toggeled-sidebar .sidebar {
-    left: 0;
-}
