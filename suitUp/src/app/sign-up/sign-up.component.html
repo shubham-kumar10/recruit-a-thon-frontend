@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-md-9 col-lg-12 col-xl-10">
+        <div class="card shadow-lg o-hidden border-0 my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-flex">
+                        <div class="flex-grow-1 near-moon-gradient">
+                            <img class="card-img-top img-fluid justify-content-center" src="assets\img\bg-business.jpg">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h4 class="text-dark mb-4">Create an Account!</h4>
+                            </div>
+                            <form class="user" [formGroup]="signUpForm" (submit)="addUser()">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"
+                                            type="text" id="exampleFirstName" placeholder="First Name"
+                                            formControlName="firstname">
+                                    </div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text"
+                                            id="exampleFirstName" placeholder="Last Name" formControlName="lastname">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="form-group col-sm-6"><input class="form-control form-control-user"
+                                            type="email" id="exampleInputEmail" aria-describedby="emailHelp"
+                                            placeholder="Email Address" formControlName="username">
+                                    </div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text"
+                                            id="exampleContact" placeholder="Contact Number" formControlName="contact">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input class="form-control form-control-user" type="password"
+                                            id="examplePasswordInput" placeholder="Password" formControlName="password">
+                                    </div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="password"
+                                            id="exampleRepeatPasswordInput" placeholder="Repeat Password"
+                                            formControlName="confirmPassword">
+                                    </div>
+                                    <div class="text-danger"
+                                        *ngIf="confirmPassword.invalid && confirmPassword.errors.required && confirmPassword.touched">
+                                        Confirm the Password</div>
+                                    <div class="text-danger"
+                                        *ngIf="signUpForm.get('confirmPassword').hasError('nomatch')">
+                                        Password
+                                        and Confirm Password do not match</div>
+                                </div>
+                                <button class="btn btn-primary btn-block text-white btn-user" type="submit">
+                                    Register Account
+                                </button>
+                                <hr>
+                            </form>
+                            <div class="row">
+                                <div class="col-4">
+                                    <a class="small" href="javascript:void(0)">Forgot Password?</a>
+                                </div>
+                                <div class="small offset-3 col-5">Already have an account?
+                                    <a (click)="goToLogin()"> Login!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
