@@ -1,6 +1,7 @@
 #myFooter {
     padding-top: 32px;
     padding:0px;
+    overflow: hidden;
   }
   
   #myFooter .footer-copyright {
