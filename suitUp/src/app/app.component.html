@@ -1,5 +1,5 @@
 <app-header *ngIf="displayHeader"></app-header>
-<div class="wrapper default-theme">
+<div class="wrapper default-theme" [ngClass]="getClasses()">
     <app-nav-bar *ngIf="displayBar"></app-nav-bar>
     <main>
         <app-side-bar *ngIf="displayBar"></app-side-bar>
@@ -7,6 +7,7 @@
             <!-- routes will be rendered here -->
             <router-outlet></router-outlet>
         </div>
+        <div class="overlay" (click)="toggleSidebar()"></div>
     </main>
 </div>
 <!-- footer -->
