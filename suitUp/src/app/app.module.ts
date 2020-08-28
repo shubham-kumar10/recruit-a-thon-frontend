@@ -28,7 +28,7 @@ import { ProfileComponent } from './profile/profile.component';
     SideBarComponent,
     DashboardComponent,
     JobcardComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

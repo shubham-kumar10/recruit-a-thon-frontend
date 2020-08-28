@@ -1,13 +1,12 @@
 <app-header *ngIf="displayHeader"></app-header>
 <div class="wrapper default-theme">
-<app-nav-bar *ngIf="displayBar"></app-nav-bar>
-<main>
-<app-side-bar *ngIf="displayBar"></app-side-bar>
-<div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
-<!-- routes will be rendered here -->
-<router-outlet></router-outlet>
-</div>
-</main>
+  <app-nav-bar *ngIf="displayBar"></app-nav-bar>
+  <main>
+    <app-side-bar *ngIf="displayBar"></app-side-bar>
+    <div class="container-fluid p-4">
+      <!-- routes will be rendered here -->
+      <router-outlet></router-outlet>
+    </div>
+  </main>
 </div>
 <!-- footer -->
-<app-footer *ngIf="displayFooter"></app-footer>
