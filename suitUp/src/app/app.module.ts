@@ -18,6 +18,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { JobcardComponent } from './jobcard/jobcard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
+//import { MatFormFieldModule } from '@angular/material';
+//import { MatInputModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -32,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DashboardComponent,
     JobcardComponent,
     ProfileComponent,
+    EditprofileComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     AlertModule.forRoot(),
     CollapseModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatStepperModule,
+    //MatFormFieldModule,
+    //MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
