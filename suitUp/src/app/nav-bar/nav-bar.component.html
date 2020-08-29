@@ -16,18 +16,43 @@
   </div>
   <!-- left box -->
   <ul class="navbar-nav flex-fill mt-1 align-items-center left-nav">
+    <li class="nav-item navicon">
+      <a class="btn nav-link" (click)="toggleSidebarPin()"><i class="fa fa-bars"></i></a>
+    </li>
     <li class="nav-item flex-fill">
       <input class="form-control navbar-search" type="text" placeholder="Search . . .">
     </li>
   </ul>
 
   <!-- right menu -->
-  <div class="collapse navbar-collapse right-nav" id="collapseBasic">
+  <div class="collapse navbar-collapse right-nav" id="collapseBasic" [collapse]="isCollapsed">
     <ul class="navbar-nav ">
+      <li class="nav-item">
+        <a class="btn nav-link">
+          <i class="far fa-bell"></i>
+          <span class="link-text">Alerts</span>
+          <!-- <span class="badge badge-pill ba dge-danger">3</span> -->
+          <span class="nav-alert notifications"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="btn nav-link">
+          <i class="far fa-envelope"></i>
+          <span class="link-text">Messages</span>
+          <!-- <span class="badge badge-pill badge-success">5</span> -->
+          <span class="nav-alert messages"></span>
+        </a>
+      </li>
       <li class="nav-item">
         <a class="btn nav-link">
           <i class="far fa-user"></i>
           <span class="link-text">Profile</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="btn nav-link">
+          <i class="fas fa-cog"></i>
+          <span class="link-text">Setting</span>
         </a>
       </li>
     </ul>
