@@ -8,6 +8,7 @@ import {
 import { User } from '../models/user';
 import { SignUpService } from '../services/sign-up.service';
 import { Router } from '@angular/router';
+import { Errors } from '../constants/errors.constants';
 
 @Component({
     selector: 'app-sign-up',
@@ -18,7 +19,8 @@ export class SignUpComponent implements OnInit {
     public signUpForm: FormGroup;
     public user: User;
     public userCreated: boolean = null;
-    public error: string;
+    public errorMessage: string;
+    public errorType: string;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -92,8 +94,6 @@ export class SignUpComponent implements OnInit {
     }
 
     public addUser(): void {
-        console.log(this.signUpForm.value['firstname']);
-
         this.user = {
             id: null,
             firstName: this.signUpForm.value['firstname'],
@@ -105,22 +105,27 @@ export class SignUpComponent implements OnInit {
         this.signUpService.addUser(this.user).subscribe(
             (data) => {
                 this.userCreated = true;
-                this.error = 'Signed Up Successfull.Go to Login Page';
-                console.log(this.userCreated);
-                this.router.navigate['login'];
+                this.errorType = Errors.SUCCESS;
+                this.errorMessage = 'Signed Up Successfull.'+'Go to Login Page';
+                setTimeout(()=>{
+                    this.goToLogin();
+                },5000);
             },
             (error) => {
-                console.log('error');
-                if (error.status == 400) {
-                    this.error = 'User Already Exists';
+                if (error.status === 500) {
+                    this.errorType = Errors.DANGER;
+                    this.errorMessage = error.error.message;
                     this.userCreated = false;
                 }
-                console.log(this.error);
             }
         );
     }
 
     public navigateToLogin(): void {
         this.router.navigate(['login']);
+    }
+
+    public navigateToEditProfile(): void {
+        this.router.navigate(['editprofile']);
     }
 }
