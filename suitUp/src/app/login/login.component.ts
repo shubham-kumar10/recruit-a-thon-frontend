@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
+import { Errors } from '../constants/errors.constants';
 
 @Component({
     selector: 'app-login',
@@ -9,9 +10,11 @@ import { AuthenticationService } from '../services/authentication.service';
     styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+
     public loginForm: FormGroup;
     public invalidLogin: boolean;
-    public error: string = 'Login Failed';
+    public errorMessage: string;
+    public errorType: string;
 
     constructor(
         private formBuild: FormBuilder,
@@ -49,23 +52,22 @@ export class LoginComponent implements OnInit {
             .authenticate(this.getUsername(), this.getPassword())
             .subscribe(
                 (data) => {
-                    console.log(data);
                     this.authService.setToken(data.token);
-                    this.error = 'Logged In successfully';
+                    this.errorMessage = 'Logged In successfully';
+                    this.errorType = Errors.SUCCESS;
                     this.authService.username = this.getUsername();
                     this.authService.loggedIn = true;
-                    this.authService.loggedIn = true;
-                    this.authService.validCredentials = true;
                     this.authService.setUserId();
-                    //this.router.navigate(['/search-bar']);
+                    this.goToProfile();
                 },
                 (error) => {
-                    this.authService.validCredentials = false;
-                    this.invalidLogin = true;
-                    if (error.status === 401) {
-                        this.error = 'Invalid Username or Password';
-                    }
+                    this.errorType = Errors.DANGER;
+                    this.errorMessage = error.error.message;
                 }
             );
+    }
+
+    goToProfile(): void {
+        this.router.navigate(['profile']);
     }
 }

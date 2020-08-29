@@ -15,9 +15,6 @@ export class SignUpService {
     constructor(private _httpClient: HttpClient) { }
 
     addUser(user: User): Observable<any> {
-
-        console.log("Inside add user of service ")
-        console.log(user)
         return this._httpClient.post<any>(this.url, user)
     }
 }
