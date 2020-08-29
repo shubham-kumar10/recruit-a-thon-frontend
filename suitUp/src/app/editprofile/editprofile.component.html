@@ -1,0 +1,144 @@
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Personal Details</ng-template>
+      <div>
+
+        <div class="row">
+          <div class="col-md-12 col-lg-12 mb-4 align-items-stretch">
+            <div class="card border-0 rounded-0 h-100">
+              <div class="card-title mb-1 p-3">
+              </div>
+              <div class="card-body">
+
+                <div class="form-group row">
+                  <label for="username" class="col-sm-2 col-form-label text-nowrap">Name:</label>
+                  <div class="col-xs-4">
+                    <input type="text" id='nameInput' maxlength="20"
+                      onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
+                      class="form-control" id="username" aria-describedby="emailHelp"
+                      placeholder="Enter your name" formControlName="name" required>
+                  </div>&nbsp;&nbsp;&nbsp;
+                  <label for="contact" class="col-sm-2 col-form-label text-nowrap">Contact Number:</label>
+                  <div class="col-xs-4">
+                    <input class="form-control" id="contact" aria-describedby="emailHelp"
+                      placeholder="Contact number" type="text" pattern="\d*" maxlength="10" formControlName="contact" required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="address" class="col-sm-2 col-form-label text-nowrap">Address Line:</label>
+                  <div class="col-xs-4">
+                    <input type="text" class="form-control" id="address" aria-describedby="emailHelp"
+                      placeholder="Enter your Address" formControlName="address" required>
+                  </div>&nbsp;&nbsp;&nbsp;
+                  <label for="date" class="col-sm-2 col-form-label text-nowrap">Date of Birth:</label>
+                  <div class="col-xs-4">
+                    <input type="date" id="date" class="form-control" placeholder="dd-mm-yyyy" value="" formControlName="dob" required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="country" class="col-sm-2 col-form-label text-nowrap">Country:</label>
+                  <div class="col-xs-4">
+                    <input type="text" id='country'
+                      onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
+                      class="form-control" id="husername" aria-describedby="emailHelp"
+                      placeholder="Enter your nationality" formControlName="country" required>
+                  </div>&nbsp;&nbsp;&nbsp;
+                  <label for="state" class="col-sm-2 col-form-label text-nowrap">State:</label>
+                  <div class="col-xs-4">
+                    <input type="text" id='state'
+                      onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
+                      class="form-control" id="husername" aria-describedby="emailHelp"
+                      placeholder="Enter your state" formControlName="state" required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="city" class="col-sm-2 col-form-label text-nowrap">City:</label>
+                  <div class="col-xs-4">
+                    <input type="text" id='city'
+                      onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
+                      class="form-control" id="husername" aria-describedby="emailHelp"
+                      placeholder="Enter your city" formControlName="city" required>
+                  </div>&nbsp;&nbsp;&nbsp;
+                  <label for="zipcode" class="col-sm-2 col-form-label text-nowrap">Zip Code:</label>
+                  <div class="col-xs-4">
+                    <input type="text" class="form-control" id="zipcode" aria-describedby="emailHelp"
+                      placeholder="Enter your zip code" pattern="\d*" maxlength="6" formControlName="zipcode" required>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="city" class="col-sm-2 col-form-label text-nowrap">Gender:</label>
+                  <div class="col-xs-4">
+                    <div>
+                      <input id="male" type="radio" value="male" name="gender" formControlName="gender">
+                      <label for="male">&nbsp;Male</label>
+                   </div>
+                
+                   <div>
+                      <input id="female" type="radio" value="female" name="gender" formControlName="gender">
+                      <label for="female">&nbsp;Female</label>
+                   </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <!-- #docregion optional -->
+  <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
+    <!-- #enddocregion optional -->
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Education Details</ng-template>
+
+      <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup" [optional]="isOptional">
+    <!-- #enddocregion optional -->
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Experience</ng-template>
+
+      <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="fourthFormGroup" [optional]="isOptional">
+    <!-- #enddocregion optional -->
+    <form [formGroup]="fourthFormGroup">
+      <ng-template matStepLabel>Additional Details</ng-template>
+
+      <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
