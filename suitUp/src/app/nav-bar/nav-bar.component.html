@@ -1,17 +1,24 @@
 <nav class="navbar navbar-expand-md fixed-top navbar-dark flex-fill">
   <!-- <button class="sidebar-toggler ml-4" type="button">
-      <i class="fa fa-navicon"></i>
-    </button> -->
+    <i class="fa fa-navicon"></i>
+  </button> -->
   <!-- header -->
   <div class="navbar-header pl-2 pr-2 ml-3 text-center">
-    <a class="navbar-brand m-0 w-100 logo">
-      <img src="assets\img\suitup-logo-light.png" class="img-fluid w-50" alt="Suit UP logo">
-    </a>
+    <div class="navbar-brand m-0 w-100">
+      <img src="assets\img\suitup-logo.png" class="img-fluid w-50"  alt="Suit UP logo">
+    </div>
+  </div>
+  <!-- sidebar toggler -->
+  <div class="sidebar-toggler ml-auto mr-3">
+    <a class="btn nav-link" (click)="toggleSidebar()"><i class="fa fa-bars"></i></a>
   </div>
   <!-- right menu toggler -->
   <div class="nav-toggler-right mr-4 d-md-none">
-    <!-- <span class="navbar-toggler-icon"></span> -->
-    <img src="./assets/img/user.jpg" class="img-fluid" alt="">
+    <button class="" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+      aria-controls="collapseBasic">
+      <!-- <span class="navbar-toggler-icon"></span> -->
+      <img src="./assets/img/user.jpg" class="img-fluid" alt="">
+    </button>
     <span class="user-profile nav-alert bg-danger"></span>
   </div>
   <!-- left box -->
