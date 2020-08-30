@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatRadioModule} from '@angular/material/radio';
 //import { MatFormFieldModule } from '@angular/material';
 //import { MatInputModule } from '@angular/material';
 
@@ -49,7 +51,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatStepperModule,
     //MatFormFieldModule,
     //MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSlideToggleModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

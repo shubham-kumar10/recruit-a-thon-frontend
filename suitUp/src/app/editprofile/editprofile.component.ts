@@ -13,6 +13,7 @@ export class EditprofileComponent implements OnInit {
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
   isOptional = true;
+  isChecked = false;
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -25,16 +26,33 @@ export class EditprofileComponent implements OnInit {
       city: ['', Validators.required],
       state: ['', Validators.required],
       address: ['', Validators.required],
-      gender: ''
+      gender: ['', Validators.required],
+      role: ['', Validators.required]
     });
     this.secondFormGroup = this.fb.group({
-      secondCtrl: ''
+      school: ['', Validators.required],
+      board: ['', Validators.required],
+      year: ['', Validators.required],
+      percentage: ['', Validators.required],
+      country: ['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required],
+      degree: ['', Validators.required],
+      stream: ['', Validators.required],
     });
     this.thirdFormGroup = this.fb.group({
-      secondCtrl: ''
+      position: ['', Validators.required],
+      emptype: ['', Validators.required],
+      location: ['', Validators.required],
+      company: ['', Validators.required],
+      duration: ['', Validators.required],
+      description: ['', Validators.required],
     });
     this.fourthFormGroup = this.fb.group({
-      secondCtrl: ''
+      projtitle: ['', Validators.required],
+      duration: ['', Validators.required],
+      description: ['', Validators.required],
+      team: ['', Validators.required],
     });
   }
 
