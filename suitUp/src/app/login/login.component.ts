@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
                     this.errorType = Errors.SUCCESS;
                     this.authService.username = this.getUsername();
                     this.authService.loggedIn = true;
-                    this.authService.setUserId();
+                    this.authService.setUserId(data.userId);
                     this.goToProfile();
                 },
                 (error) => {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { CandidateService } from '../services/candidate.service';
+import { Candidate } from '../models/candidate.model';
 
 @Component({
   selector: 'app-editprofile',
@@ -14,7 +16,7 @@ export class EditprofileComponent implements OnInit {
   fourthFormGroup: FormGroup;
   isOptional = true;
   isChecked = false;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private _candidate: CandidateService) { }
 
   ngOnInit(): void {
     this.firstFormGroup = this.fb.group({
@@ -54,6 +56,25 @@ export class EditprofileComponent implements OnInit {
       description: ['', Validators.required],
       team: ['', Validators.required],
     });
+  }
+
+  addCandidateDetails(): void{
+
+    let candidateData: Candidate = {
+      id: null,
+      bio: this.firstFormGroup.value[''],
+      city:this.firstFormGroup.value['city'],
+      country:this.firstFormGroup.value['country'],
+      dateOfBirth:this.firstFormGroup.value['dob'],
+      gender:this.firstFormGroup.value['gender'],
+      profilePicture: null,
+      resume: null
+    }
+    this._candidate.addCandidateDetails(candidateData).subscribe(
+      data => {
+        console.log(data);
+      }
+    )
   }
 
 }

@@ -23,7 +23,7 @@ export class AppComponent {
     });
   }
 
-  modifyDisplay(url) {
+  modifyDisplay(url): void {
     this.displayHeader = (this.baseURLH.indexOf(url) > -1) ? true : false;
     this.displayFooter = (this.baseURLF.indexOf(url) > -1) ? true : false;
     this.displayBar = (this.baseURLF.indexOf(url) > -1) ? false : true;
@@ -36,7 +36,8 @@ export class AppComponent {
     }
     return classes;
   }
-  toggleSidebar() {
+
+  toggleSidebar(): void {
     this.appService.toggleSidebar();
   }
 

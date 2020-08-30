@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { User } from '../models/user';
 
 @Injectable({
     providedIn: 'root',
@@ -28,13 +29,10 @@ export class AuthenticationService {
         return this.token;
     }
 
-    public setUserId() {
-        const sum = 0;
-        for (let i = 0; i < this.username.length; i++) {
-            this.userId = this.username.charCodeAt(i) + this.userId;
-        }
+    public setUserId(userId:number){
+        this.userId = userId;
     }
-
+    
     authenticate(user: string, password: string): Observable<any> {
         let headers = new HttpHeaders();
         headers = headers.set('Authorization', 'Basic ' + btoa(user + ':' + password));
