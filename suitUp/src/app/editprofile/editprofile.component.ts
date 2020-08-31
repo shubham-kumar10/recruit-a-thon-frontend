@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CandidateService } from '../services/candidate.service';
 import { Candidate } from '../models/candidate.model';
+import { PersonalFormComponent } from '../edit-profile/personal-form/personal-form.component';
 
 @Component({
   selector: 'app-editprofile',
@@ -10,39 +11,17 @@ import { Candidate } from '../models/candidate.model';
 })
 export class EditprofileComponent implements OnInit {
 
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
+  personalDetailsForm: FormGroup;
+  educationDetailsForm: FormGroup;
+  experienceDetailsForm: FormGroup;
   fourthFormGroup: FormGroup;
   isOptional = true;
   isChecked = false;
   constructor(private fb: FormBuilder, private _candidate: CandidateService) { }
 
   ngOnInit(): void {
-    this.firstFormGroup = this.fb.group({
-      name: ['', Validators.required],
-      dob: ['', Validators.required],
-      country: ['', Validators.required],
-      contact: ['', Validators.required],
-      zipcode: ['', Validators.required],
-      city: ['', Validators.required],
-      state: ['', Validators.required],
-      address: ['', Validators.required],
-      gender: ['', Validators.required],
-      role: ['', Validators.required]
-    });
-    this.secondFormGroup = this.fb.group({
-      school: ['', Validators.required],
-      board: ['', Validators.required],
-      year: ['', Validators.required],
-      percentage: ['', Validators.required],
-      country: ['', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required],
-      degree: ['', Validators.required],
-      stream: ['', Validators.required],
-    });
-    this.thirdFormGroup = this.fb.group({
+    
+    this.experienceDetailsForm = this.fb.group({
       position: ['', Validators.required],
       emptype: ['', Validators.required],
       location: ['', Validators.required],
@@ -57,24 +36,4 @@ export class EditprofileComponent implements OnInit {
       team: ['', Validators.required],
     });
   }
-
-  addCandidateDetails(): void{
-
-    let candidateData: Candidate = {
-      id: null,
-      bio: this.firstFormGroup.value[''],
-      city:this.firstFormGroup.value['city'],
-      country:this.firstFormGroup.value['country'],
-      dateOfBirth:this.firstFormGroup.value['dob'],
-      gender:this.firstFormGroup.value['gender'],
-      profilePicture: null,
-      resume: null
-    }
-    this._candidate.addCandidateDetails(candidateData).subscribe(
-      data => {
-        console.log(data);
-      }
-    )
-  }
-
 }

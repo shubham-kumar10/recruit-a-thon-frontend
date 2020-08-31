@@ -23,6 +23,10 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
+import { EducationFormComponent } from './edit-profile/education-form/education-form.component';
+import { ExperienceFormComponent } from './edit-profile/experience-form/experience-form.component';
+import { PersonalFormComponent } from './edit-profile/personal-form/personal-form.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 //import { MatFormFieldModule } from '@angular/material';
 //import { MatInputModule } from '@angular/material';
 
@@ -40,6 +44,10 @@ import {MatRadioModule} from '@angular/material/radio';
     JobcardComponent,
     ProfileComponent,
     EditprofileComponent,
+    EducationFormComponent,
+    ExperienceFormComponent,
+    PersonalFormComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
