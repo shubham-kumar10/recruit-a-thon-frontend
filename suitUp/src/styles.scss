@@ -23,6 +23,7 @@ $hamburger-hover-opacity       : 0.7 !default;
 @import '~@fortawesome/fontawesome-free/scss/brands';
 */
 @import './assets/dashboard-suitup';
+@import './app/edit-profile/personal-form/personal-form.component.scss';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -18,7 +18,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { JobcardComponent } from './jobcard/jobcard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EditprofileComponent } from './editprofile/editprofile.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
@@ -27,8 +26,7 @@ import { EducationFormComponent } from './edit-profile/education-form/education-
 import { ExperienceFormComponent } from './edit-profile/experience-form/experience-form.component';
 import { PersonalFormComponent } from './edit-profile/personal-form/personal-form.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-//import { MatFormFieldModule } from '@angular/material';
-//import { MatInputModule } from '@angular/material';
+import { ProjectFormComponent } from './edit-profile/project-form/project-form.component';
 
 @NgModule({
   declarations: [
@@ -43,11 +41,11 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     DashboardComponent,
     JobcardComponent,
     ProfileComponent,
-    EditprofileComponent,
     EducationFormComponent,
     ExperienceFormComponent,
     PersonalFormComponent,
     EditProfileComponent,
+    ProjectFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,8 +57,6 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     CollapseModule.forRoot(),
     BrowserAnimationsModule,
     MatStepperModule,
-    //MatFormFieldModule,
-    //MatInputModule,
     MatButtonModule,
     MatSlideToggleModule,
     MatRadioModule
