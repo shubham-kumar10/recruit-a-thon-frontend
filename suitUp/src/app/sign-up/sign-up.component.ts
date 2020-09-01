@@ -9,6 +9,7 @@ import { User } from '../models/user';
 import { SignUpService } from '../services/sign-up.service';
 import { Router } from '@angular/router';
 import { Errors } from '../constants/errors.constants';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
     selector: 'app-sign-up',
@@ -26,7 +27,7 @@ export class SignUpComponent implements OnInit {
         private formBuilder: FormBuilder,
         private signUpService: SignUpService,
         private router: Router,
-        public signup: SignUpService
+        private authService:AuthenticationService
     ) { }
 
     ngOnInit() {
@@ -108,8 +109,9 @@ export class SignUpComponent implements OnInit {
                 this.errorType = Errors.SUCCESS;
                 this.errorMessage = 'Signed Up Successfull.'+'Go to Login Page';
                 setTimeout(()=>{
-                    this.goToLogin();
-                },5000);
+                    this.navigateToEditProfile();
+                },1000);
+                this.authService.userId = data.id;
             },
             (error) => {
                 if (error.status === 500) {

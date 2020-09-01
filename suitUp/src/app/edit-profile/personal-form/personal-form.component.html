@@ -1,0 +1,106 @@
+<form [formGroup]="personalDetailsForm">
+    <div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12 mb-4 align-items-stretch">
+                <div class="card border-0 rounded-0 h-100">
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label for="username" class="col-sm-2 col-form-label text-nowrap">
+                                Name:
+                            </label>
+                            <div class="col-xs-4">
+                                <input type="text" maxlength="20"
+                                    onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
+                                    class="form-control" id="name" aria-describedby="emailHelp"
+                                    placeholder="Enter your name" formControlName="name" required>
+                            </div>
+
+                            <label for="contact" class="offset-sm-1 col-sm-2 col-form-label text-nowrap">
+                                Contact Number:
+                            </label>
+                            <div class="col-xs-4">
+                                <input class="form-control" id="contact" aria-describedby="emailHelp"
+                                    placeholder="Contact number" type="text"
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                                    maxlength="10" formControlName="contact" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="address" class="col-sm-2 col-form-label text-nowrap">
+                                Address Line:
+                            </label>
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control" id="address" aria-describedby="emailHelp"
+                                    placeholder="Enter your Address" formControlName="address" required>
+                            </div>
+                            <label for="date" class="offset-sm-1 col-sm-2 col-form-label text-nowrap">Date of Birth:</label>
+                            <div class="col-xs-4">
+                                <input type="date" id="date" class="form-control" placeholder="dd-mm-yyyy" value=""
+                                    formControlName="dob" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="country" class="col-sm-2 col-form-label text-nowrap">
+                                Country:
+                            </label>
+                            <div class="col-xs-4">
+                                <input type="text" id='country' maxlength="15"
+                                    onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
+                                    class="form-control" aria-describedby="emailHelp"
+                                    placeholder="Enter your nationality" formControlName="country" required>
+                            </div>
+                            <label for="state" class="offset-sm-1 col-sm-2 col-form-label text-nowrap">State:</label>
+                            <div class="col-xs-4">
+                                <input type="text" id='state' maxlength="15"
+                                    onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
+                                    class="form-control" aria-describedby="emailHelp" placeholder="Enter your state"
+                                    formControlName="state" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="city" class="col-sm-2 col-form-label text-nowrap">City:</label>
+                            <div class="col-xs-4">
+                                <input type="text" id='city' maxlength="15"
+                                    onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
+                                    class="form-control" aria-describedby="emailHelp" placeholder="Enter your city"
+                                    formControlName="city" required>
+                            </div>
+                            <label for="zipcode" class="offset-sm-1 col-sm-2 col-form-label text-nowrap">Zip Code:</label>
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control" id="zipcode" aria-describedby="emailHelp"
+                                    placeholder="Enter your zip code"
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                                    maxlength="6" formControlName="zipcode" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="gender" class="col-sm-2 radio control-label">Gender:</label>
+                            <mat-radio-group formControlName="gender" aria-label="Gender" color="primary">
+                                <mat-radio-button value="M">Male</mat-radio-button> &nbsp;&nbsp;&nbsp;
+                                <mat-radio-button value="F">Female</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+
+                        <div class="form-group row">
+                            <mat-slide-toggle class="col-12" [(ngModel)]="isChecked" formControlName="role" color="primary">
+                                <div class="mt-4">
+                                    Want to post jobs as well? <br>
+                                    <label class="text-info">
+                                        {{isChecked ? 'Sure' : 'Will decide later'}}
+                                    </label>
+                                </div>
+                            </mat-slide-toggle>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button mat-button matStepperNext (click)="addCandidateDetails()">Next</button>
+    </div>
+</form>
