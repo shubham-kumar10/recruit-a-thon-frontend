@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 import { CandidateService } from '../services/candidate.service';
 import { Candidate } from '../models/candidate.model';
 
@@ -55,8 +55,31 @@ export class EditprofileComponent implements OnInit {
       duration: ['', Validators.required],
       description: ['', Validators.required],
       team: ['', Validators.required],
+      skills: this.fb.array([this.createSkillFormGroup()])
     });
   }
+
+  public addSkillFormGroup() {
+    const skills = this.fourthFormGroup.get('skills') as FormArray
+    skills.push(this.createSkillFormGroup())
+  }
+
+  public removeOrClearSkill(i: number) {
+    const skills = this.fourthFormGroup.get('skills') as FormArray
+    if (skills.length > 1) {
+      skills.removeAt(i)
+    } else {
+      skills.reset()
+    }
+  }
+
+  private createSkillFormGroup(): FormGroup {
+    return new FormGroup({
+      'skillz': new FormControl('')
+    })
+  }
+
+  
 
   addCandidateDetails(): void{
 
