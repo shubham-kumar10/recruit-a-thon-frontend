@@ -51,10 +51,7 @@ export class EditprofileComponent implements OnInit {
       description: ['', Validators.required],
     });
     this.fourthFormGroup = this.fb.group({
-      projtitle: ['', Validators.required],
-      duration: ['', Validators.required],
-      description: ['', Validators.required],
-      team: ['', Validators.required],
+      projects: this.fb.array([this.createProjectFormGroup()]),
       skills: this.fb.array([this.createSkillFormGroup()])
     });
   }
@@ -79,7 +76,28 @@ export class EditprofileComponent implements OnInit {
     })
   }
 
-  
+  public addProjectFormGroup() {
+    const projects = this.fourthFormGroup.get('projects') as FormArray
+    projects.push(this.createProjectFormGroup())
+  }
+
+  public removeOrClearProject(i: number) {
+    const projects = this.fourthFormGroup.get('projects') as FormArray
+    if (projects.length > 1) {
+      projects.removeAt(i)
+    } else {
+      projects.reset()
+    }
+  }
+
+  private createProjectFormGroup(): FormGroup {
+    return new FormGroup({
+      'projtitle': new FormControl(''),
+      'duration': new FormControl(''),
+      'description': new FormControl(''),
+      'team': new FormControl(''),
+    })
+  }
 
   addCandidateDetails(): void{
 
