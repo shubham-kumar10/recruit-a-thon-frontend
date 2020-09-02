@@ -1,11 +1,16 @@
-<div class="row">
-    <div class="col-md-12 col-lg-12 mb-4 align-items-stretch">
-        <div class="card border-0 rounded-0 h-100">
-            <div class="card-title mb-1 p-3">
-                <h5>High School</h5>
-            </div>
-            <div class="card-body">
-                <form [formGroup]="educationDetailsForm">
+<form [formGroup]="educationDetailsForm">
+    <div class="row">
+        <div class="col-md-12 col-lg-12 mb-4 align-items-stretch">
+            <div class="card border-0 rounded-0 h-100">
+                <div class="card-title mb-1 p-3">
+                    <h5>High School</h5>
+                </div>
+                <div class="card-body">
+
+                    <div formArrayName="educations">
+                        <div *ngFor="let education of educationDetailsForm.get('educations')['controls']; let i = index"
+                            [formGroupName]="i">
+
                     <div class="form-group row">
                         <label for="school" class="col-sm-2 col-form-label text-nowrap">School Name:</label>
                         <div class="col-xs-4">
@@ -13,14 +18,27 @@
                                 onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
                                 class="form-control" aria-describedby="emailHelp" placeholder="Enter your school name"
                                 formControlName="school" required>
-                        </div>
-                        <label for="board" class="offset-sm-1 col-sm-2 col-form-label text-nowrap">Board Name:</label>
+                        </div>&nbsp;&nbsp;&nbsp;
+                        <label for="board" class="col-sm-2 col-form-label text-nowrap">Board Name:</label>
                         <div class="col-xs-4">
                             <input class="form-control" id="board" aria-describedby="emailHelp"
                                 placeholder="Enter your board name" type="text"
                                 onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
                                 maxlength="10" formControlName="board" required>
                         </div>
+
+                        <div class="col-xs-4">
+                            <button class="float-left" mat-icon-button color="primary" aria-label="Add"
+                                (click)="addEducationFormGroup()" matTooltip="Add">
+                                <mat-icon>add_circle_outline</mat-icon>
+                            </button>
+                            <button class="float-left" mat-icon-button color="primary"
+                                aria-label="Remove/clear" (click)="removeOrClearEducation(i)"
+                                matTooltip="Remove">
+                                <mat-icon>highlight_off</mat-icon>
+                            </button>
+                        </div>
+
                     </div>
 
                     <div class="form-group row">
@@ -64,12 +82,14 @@
                                 formControlName="city" required>
                         </div>
                     </div>
-                </form>
+                </div>
+            </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-<button mat-button matStepperPrevious>Back</button>
-<button mat-button matStepperNext>Next</button>
+    <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+    </div>
+</form>
