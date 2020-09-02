@@ -9,7 +9,7 @@ import { CandidateService } from 'src/app/services/candidate.service';
 })
 export class EducationFormComponent implements OnInit {
 
-  @Input() educationDetailsForm:FormGroup;
+  @Input() educationDetailsForm: FormGroup;
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -22,6 +22,7 @@ export class EducationFormComponent implements OnInit {
       city: ['', Validators.required],
       degree: ['', Validators.required],
       stream: ['', Validators.required],
+      percentage: ['']
     });
   }
 
