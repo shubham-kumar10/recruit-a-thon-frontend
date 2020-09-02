@@ -52,12 +52,9 @@ export class LoginComponent implements OnInit {
             .authenticate(this.getUsername(), this.getPassword())
             .subscribe(
                 (data) => {
-                    this.authService.setToken(data.token);
+                    this.authService.setUserDetails(data);
                     this.errorMessage = 'Logged In successfully';
                     this.errorType = Errors.SUCCESS;
-                    this.authService.username = this.getUsername();
-                    this.authService.loggedIn = true;
-                    this.authService.setUserId(data.userId);
                     this.goToProfile();
                 },
                 (error) => {

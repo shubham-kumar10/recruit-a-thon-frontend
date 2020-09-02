@@ -6,3 +6,11 @@ export interface User {
     password: string;
     contactNumber: string;
 }
+
+export interface LoggedInUser {
+    id: number;
+    firstname: string;
+    lastname: string;
+    username: string;
+    token: string;
+}
