@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-experience-form',
@@ -13,13 +13,33 @@ export class ExperienceFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.experienceDetailsForm = this.fb.group({
-      position: ['', Validators.required],
-      emptype: ['', Validators.required],
-      location: ['', Validators.required],
-      company: ['', Validators.required],
-      duration: ['', Validators.required],
-      description: ['', Validators.required],
+      experiences: this.fb.array([this.createExperienceFormGroup()]),
     });
+  }
+
+  public addExperienceFormGroup() {
+    const experiences = this.experienceDetailsForm.get('experiences') as FormArray
+    experiences.push(this.createExperienceFormGroup())
+  }
+
+  public removeOrClearExperience(i: number) {
+    const experiences = this.experienceDetailsForm.get('experiences') as FormArray
+    if (experiences.length > 1) {
+      experiences.removeAt(i)
+    } else {
+      experiences.reset()
+    }
+  }
+
+  private createExperienceFormGroup(): FormGroup {
+    return new FormGroup({
+      'position': new FormControl(''),
+      'emptype': new FormControl(''),
+      'location': new FormControl(''),
+      'company': new FormControl(''),
+      'duration': new FormControl(''),
+      'description': new FormControl('')
+    })
   }
 
 }
