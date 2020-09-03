@@ -9,6 +9,7 @@ export interface Job {
     travelRequired: boolean,
     travelPercent: number,
     vacancies: number,
+    position: string,
     process: Process
 }
 
