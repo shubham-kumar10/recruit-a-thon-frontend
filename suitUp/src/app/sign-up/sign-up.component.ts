@@ -27,7 +27,7 @@ export class SignUpComponent implements OnInit {
         private formBuilder: FormBuilder,
         private signUpService: SignUpService,
         private router: Router,
-        private authService:AuthenticationService
+        private authService: AuthenticationService
     ) { }
 
     ngOnInit() {
@@ -97,21 +97,21 @@ export class SignUpComponent implements OnInit {
     public addUser(): void {
         this.user = {
             id: null,
-            firstName: this.signUpForm.value['firstname'],
-            lastName: this.signUpForm.value['lastname'],
-            password: this.signUpForm.value['password'],
-            userName: this.signUpForm.value['username'],
-            contactNumber: this.signUpForm.value['contact'],
+            firstName: this.signUpForm.get('firstname').value,
+            lastName: this.signUpForm.get('lastname').value,
+            password: this.signUpForm.get('password').value,
+            userName: this.signUpForm.get('username').value,
+            contactNumber: this.signUpForm.get('contact').value,
         };
         this.signUpService.addUser(this.user).subscribe(
             (data) => {
+                this.authService.setUserDetails(data);
                 this.userCreated = true;
                 this.errorType = Errors.SUCCESS;
-                this.errorMessage = 'Signed Up Successfull.'+'Go to Login Page';
-                setTimeout(()=>{
+                this.errorMessage = 'Signed Up Successfull.' + 'Logging you in.';
+                setTimeout(() => {
                     this.navigateToEditProfile();
-                },1000);
-                this.authService.userId = data.id;
+                }, 1000);
             },
             (error) => {
                 if (error.status === 500) {

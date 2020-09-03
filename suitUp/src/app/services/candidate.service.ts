@@ -10,13 +10,14 @@ import { environment } from 'src/environments/environment';
 })
 export class CandidateService {
 
-  constructor(private http:HttpClient, private authService:AuthenticationService) { }
+  constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
-  candidateUrl = environment.baseUrl+'profile';
+  candidateUrl = environment.baseUrl + 'profile';
 
-  addCandidateDetails(candidateDetails: Candidate): Observable<Candidate>{
+  addCandidateDetails(candidateDetails: Candidate): Observable<Candidate> {
     let headers = new HttpHeaders();
-    headers = headers.set('Authorization', 'Bearer ' + this.authService.getToken());
-    return this.http.post<Candidate>(this.candidateUrl + '/'+ this.authService.userId, candidateDetails, { headers });
+    headers = headers.set('Authorization', 'Bearer ' + this.authService.getUserDetails().token);
+    const url: string = this.candidateUrl + '/' + this.authService.getUserDetails().id;
+    return this.http.post<Candidate>(url, candidateDetails, { headers });
   }
 }
