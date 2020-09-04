@@ -19,12 +19,19 @@ export class CandidateService {
   projectUrl = 'experience';
   skillUrl = 'skills';
 
-  getCandidatedetails(): Candidate {
+  getCandidateDetails(): Candidate {
     return this.candidateDetails;
   }
 
-  setCandidatedetails(candidateDetails: Candidate): void {
+  setCandidateDetails(candidateDetails: Candidate): void {
     this.candidateDetails = candidateDetails;
+  }
+
+  getCandidateProfile(): Observable<Candidate> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Authorization', 'Bearer ' + this.authService.getUserDetails().token);
+    const url: string = this.candidateUrl + '/' + this.authService.getUserDetails().id;
+    return this.http.get<Candidate>(url, { headers });
   }
 
   addCandidateDetails(candidateDetails: Candidate): Observable<Candidate> {
@@ -37,28 +44,28 @@ export class CandidateService {
   updateEducationDetails(EducationDetails: Education): Observable<Education> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this.authService.getUserDetails().token);
-    const url: string = this.commonUrl + '/' + this.getCandidatedetails().id + '/' + this.educationUrl;
+    const url: string = this.commonUrl + '/' + this.getCandidateDetails().id + '/' + this.educationUrl;
     return this.http.post<Education>(url, EducationDetails, { headers });
   }
 
   updateExperienceDetails(ExperienceDetails: Experience): Observable<Experience> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this.authService.getUserDetails().token);
-    const url: string = this.commonUrl + '/' + this.getCandidatedetails().id + '/' + this.experienceUrl;
+    const url: string = this.commonUrl + '/' + this.getCandidateDetails().id + '/' + this.experienceUrl;
     return this.http.post<Experience>(url, ExperienceDetails, { headers });
   }
 
   updateProjectDetails(ProjectDetails: Project): Observable<Project> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this.authService.getUserDetails().token);
-    const url: string = this.commonUrl + '/' + this.getCandidatedetails().id + '/' + this.projectUrl;
+    const url: string = this.commonUrl + '/' + this.getCandidateDetails().id + '/' + this.projectUrl;
     return this.http.post<Project>(url, ProjectDetails, { headers });
   }
 
   updateSkillDetails(SkillDetails: Skill): Observable<Skill> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this.authService.getUserDetails().token);
-    const url: string = this.commonUrl + '/' + this.getCandidatedetails().id + '/' + this.skillUrl;
+    const url: string = this.commonUrl + '/' + this.getCandidateDetails().id + '/' + this.skillUrl;
     return this.http.post<Skill>(url, SkillDetails, { headers });
   }
 }

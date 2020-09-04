@@ -20,7 +20,7 @@ export class EducationFormComponent implements OnInit {
   }
 
   public addEducationFormGroup() {
-    // this.data = this.candidateService.getCandidatedetails();
+    // this.data = this.candidateService.getCandidateDetails();
     const educations = this.educationDetailsForm.get('educations') as FormArray;
     educations.push(this.createEducationFormGroup());
   }
@@ -46,8 +46,8 @@ export class EducationFormComponent implements OnInit {
   }
 
   addEducationDetails() {
-    this.data = this.candidateService.getCandidatedetails();
+    this.data = this.candidateService.getCandidateDetails();
     this.data.education = this.educationDetailsForm.value.educations;
-    this.candidateService.setCandidatedetails(this.data);
+    this.candidateService.setCandidateDetails(this.data);
   }
 }

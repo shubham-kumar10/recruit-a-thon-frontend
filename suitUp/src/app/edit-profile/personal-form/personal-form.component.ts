@@ -57,7 +57,7 @@ export class PersonalFormComponent implements OnInit {
     userData.contactnumber = this.personalDetailsForm.get('contact').value;
     userData.username = this.personalDetailsForm.get('email').value;
 
-    this.candidateService.setCandidatedetails(candidateData);
+    this.candidateService.setCandidateDetails(candidateData);
     this.authService.updateUseDetails(userData);
   }
 }

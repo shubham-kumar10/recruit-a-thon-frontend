@@ -5,6 +5,7 @@ export interface User {
     userName: string;
     password: string;
     contactNumber: string;
+    role: string;
 }
 
 export interface LoggedInUser {

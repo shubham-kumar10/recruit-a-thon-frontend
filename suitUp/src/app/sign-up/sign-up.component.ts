@@ -102,6 +102,7 @@ export class SignUpComponent implements OnInit {
             password: this.signUpForm.get('password').value,
             userName: this.signUpForm.get('username').value,
             contactNumber: this.signUpForm.get('contact').value,
+            role: undefined
         };
         this.signUpService.addUser(this.user).subscribe(
             (data) => {

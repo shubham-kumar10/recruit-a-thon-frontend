@@ -47,9 +47,9 @@ export class ExperienceFormComponent implements OnInit {
   }
 
   addExperienceDetails() {
-    this.data = this.candidateService.getCandidatedetails();
+    this.data = this.candidateService.getCandidateDetails();
     this.data.experience = this.experienceDetailsForm.value.experience;
-    this.candidateService.setCandidatedetails(this.data);
+    this.candidateService.setCandidateDetails(this.data);
   }
 
 }
