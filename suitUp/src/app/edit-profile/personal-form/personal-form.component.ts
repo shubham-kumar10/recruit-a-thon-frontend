@@ -18,7 +18,7 @@ export class PersonalFormComponent implements OnInit {
   ngOnInit(): void {
 
     this.personalDetailsForm = this.fb.group({
-      name: ['', Validators.required],
+      email: ['', Validators.required],
       dob: ['', Validators.required],
       country: ['', Validators.required],
       contact: ['', Validators.required],
@@ -27,6 +27,7 @@ export class PersonalFormComponent implements OnInit {
       state: ['', Validators.required],
       address: ['', Validators.required],
       gender: ['', Validators.required],
+      summary: ['', Validators.required],
       role: ['', Validators.required]
     });
 
@@ -36,7 +37,7 @@ export class PersonalFormComponent implements OnInit {
 
     let candidateData: Candidate = {
       id: null,
-      bio: this.personalDetailsForm.value[''],
+      bio: this.personalDetailsForm.value['summary'],
       city: this.personalDetailsForm.value['city'],
       country: this.personalDetailsForm.value['country'],
       dateOfBirth: this.personalDetailsForm.value['dob'],

@@ -10,8 +10,8 @@ export class SideBarComponent implements OnInit {
 
   constructor(private authService: AuthenticationService) { }
 
-  firstname: string = this.authService.getUserDetails().firstname;
-  lastname: string = this.authService.getUserDetails().lastname;
+  firstname: string = this.authService.getUserDetails() ? this.authService.getUserDetails().firstname : 'JOHN';
+  lastname: string = this.authService.getUserDetails() ? this.authService.getUserDetails().lastname : 'DOE';
 
   ngOnInit(): void {
 

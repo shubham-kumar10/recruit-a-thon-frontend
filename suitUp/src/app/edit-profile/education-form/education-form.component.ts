@@ -36,11 +36,8 @@ export class EducationFormComponent implements OnInit {
     return new FormGroup({
       'school': new FormControl(''),
       'board': new FormControl(''),
-      'year': new FormControl(''),
-      'country': new FormControl(''),
-      'state': new FormControl(''),
-      'city': new FormControl(''),
-      'degree': new FormControl(''),
+      'sdate': new FormControl(''),
+      'edate': new FormControl(''),
       'stream': new FormControl(''),
       'percentage': new FormControl(''),
     })
