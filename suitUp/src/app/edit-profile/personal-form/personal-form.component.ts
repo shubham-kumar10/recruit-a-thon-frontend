@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CandidateService } from 'src/app/services/candidate.service';
 import { Candidate } from 'src/app/models/candidate.model';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-personal-form',
@@ -13,7 +14,8 @@ export class PersonalFormComponent implements OnInit {
   @Input() personalDetailsForm: FormGroup;
   isOptional = true;
   isChecked = false;
-  constructor(private fb: FormBuilder, private _candidate: CandidateService) { }
+  name = this.authService.getUserDetails().firstname + this.authService.getUserDetails().lastname;
+  constructor(private fb: FormBuilder, private candidateService: CandidateService, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
 
@@ -35,20 +37,19 @@ export class PersonalFormComponent implements OnInit {
 
   addCandidateDetails(): void {
 
-    let candidateData: Candidate = {
+    const candidateData: Candidate = {
       id: null,
-      bio: this.personalDetailsForm.value['summary'],
-      city: this.personalDetailsForm.value['city'],
-      country: this.personalDetailsForm.value['country'],
-      dateOfBirth: this.personalDetailsForm.value['dob'],
-      gender: this.personalDetailsForm.value['gender'],
+      bio: this.personalDetailsForm.get('summary').value,
+      city: this.personalDetailsForm.get('city').value,
+      country: this.personalDetailsForm.get('country').value,
+      dateOfBirth: this.personalDetailsForm.get('dob').value,
+      gender: this.personalDetailsForm.get('gender').value,
       profilePicture: null,
       resume: null
-    }
-    this._candidate.addCandidateDetails(candidateData).subscribe(
-      data => {
+    };
+    this.candidateService.addCandidateDetails(candidateData).subscribe(
+    (data) => {
         console.log(data);
-      }
-    )
+      });
   }
 }
