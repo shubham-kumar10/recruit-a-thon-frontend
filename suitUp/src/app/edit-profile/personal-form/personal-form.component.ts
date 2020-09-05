@@ -33,7 +33,7 @@ export class PersonalFormComponent implements OnInit {
       role: ['', Validators.required]
     });
 
-    this.personalDetailsForm.patchValue({email: this.email});
+    this.personalDetailsForm.patchValue({ email: this.email });
   }
 
   addCandidateDetails(): void {
@@ -54,10 +54,10 @@ export class PersonalFormComponent implements OnInit {
     };
 
     this.candidateService.setCandidatedetails(candidateData);
-  /*  this.candidateService.addCandidateDetails(candidateData).subscribe(
-      (data) => {
-        this.candidateService.setCandidatedetails(data);
-        console.log(data);
-      }); */
+    /*  this.candidateService.addCandidateDetails(candidateData).subscribe(
+        (data) => {
+          this.candidateService.setCandidatedetails(data);
+          console.log(data);
+        }); */
   }
 }

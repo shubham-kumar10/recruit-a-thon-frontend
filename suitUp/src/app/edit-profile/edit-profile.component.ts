@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Candidate } from '../models/candidate.model';
+import { CandidateService } from '../services/candidate.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -16,9 +17,15 @@ export class EditProfileComponent implements OnInit {
   isOptional = true;
   isChecked = false;
 
-  constructor() { }
+  constructor(private candidateService: CandidateService) { }
 
   ngOnInit(): void {
+  }
+
+  addCandidateDetails(): void {
+    this.candidateService.addCandidateDetails(this.candidateService.getCandidatedetails()).subscribe(
+      (data) => { console.log(data); });
+
   }
 
 }

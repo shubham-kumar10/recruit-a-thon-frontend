@@ -5,8 +5,8 @@
                 <div class="card border-0 rounded-0 h-100">
                     <div class="card-body">
 
-                        <div formArrayName="experiences">
-                            <div *ngFor="let experience of experienceDetailsForm.get('experiences')['controls']; let i = index"
+                        <div formArrayName="experience">
+                            <div *ngFor="let experience of experienceDetailsForm.get('experience')['controls']; let i = index"
                                 [formGroupName]="i">
 
                                 <div class="form-group row">
@@ -15,8 +15,8 @@
                                     <div class="col-xs-4">
                                         <input type="text" id='position' maxlength="20"
                                             onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
-                                            class="form-control"
-                                            placeholder="Enter your position" formControlName="position" required>
+                                            class="form-control" placeholder="Enter your position"
+                                            formControlName="position" required>
                                     </div>&nbsp;&nbsp;&nbsp;
                                     <label for="emptype" class="col-sm-2 col-form-label text-nowrap">Employment
                                         type:</label>
@@ -48,36 +48,38 @@
                                     <div class="col-xs-4">
                                         <input type="text" id='company' maxlength="20"
                                             onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
-                                            class="form-control" placeholder="Company name"
-                                            formControlName="company" required>
-                                    </div>&nbsp;&nbsp;&nbsp;
-                                    <label for="sdate" class="col-sm-2 col-form-label text-nowrap">Starting date:</label>
-                                    <div class="col-xs-4">
-                                        <input type="date" id="sdate" class="form-control" placeholder="dd-mm-yyyy" value="" formControlName="sdate"
+                                            class="form-control" placeholder="Company name" formControlName="company"
                                             required>
-                                    </div>
-                                    
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="location" class="col-sm-2 col-form-label text-nowrap">Location:</label>
-                                        <div class="col-xs-4">
-                                            <input class="form-control" id="location" placeholder="Company location"
-                                                type="text"
-                                                onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
-                                                maxlength="10" formControlName="location" required>
-                                        </div>&nbsp;&nbsp;&nbsp;
-                                        <label for="edate" class="col-sm-2 col-form-label text-nowrap">Ending date:</label>
-                                        <div class="col-xs-4">
-                                            <input type="date" id="edate" class="form-control" placeholder="dd-mm-yyyy" value="" formControlName="edate"
-                                                required>
-                                        </div>
+                                    </div>&nbsp;&nbsp;&nbsp;
+                                    <label for="sdate" class="col-sm-2 col-form-label text-nowrap">Starting
+                                        date:</label>
+                                    <div class="col-xs-4">
+                                        <input type="date" id="sdate" class="form-control" placeholder="dd-mm-yyyy"
+                                            value="" formControlName="sdate" required>
                                     </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-xs-4">
-                                            <mat-checkbox class="col-12" formControlName="current" color="primary">Currently working here</mat-checkbox>
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="location" class="col-sm-2 col-form-label text-nowrap">Location:</label>
+                                    <div class="col-xs-4">
+                                        <input class="form-control" id="location" placeholder="Company location"
+                                            type="text"
+                                            onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
+                                            maxlength="10" formControlName="location" required>
+                                    </div>&nbsp;&nbsp;&nbsp;
+                                    <label for="edate" class="col-sm-2 col-form-label text-nowrap">Ending date:</label>
+                                    <div class="col-xs-4">
+                                        <input type="date" id="edate" class="form-control" placeholder="dd-mm-yyyy"
+                                            value="" formControlName="edate" required>
                                     </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-xs-4">
+                                        <mat-checkbox class="col-12" formControlName="current" color="primary">Currently
+                                            working here</mat-checkbox>
+                                    </div>
+                                </div>
                                 <hr>
                             </div>
                         </div>

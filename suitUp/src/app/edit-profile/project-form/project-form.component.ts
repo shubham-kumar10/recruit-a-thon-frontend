@@ -16,7 +16,7 @@ export class ProjectFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.projectDetailsForm = this.fb.group({
-      projects: this.fb.array([this.createProjectFormGroup()]),
+      project: this.fb.array([this.createProjectFormGroup()]),
       skills: this.fb.array([this.createSkillFormGroup()])
     });
   }
@@ -37,22 +37,22 @@ export class ProjectFormComponent implements OnInit {
 
   private createSkillFormGroup(): FormGroup {
     return new FormGroup({
-      skillz: new FormControl(''),
+      skillName: new FormControl(''),
       rating: new FormControl(''),
     });
   }
 
   public addProjectFormGroup() {
-    const projects = this.projectDetailsForm.get('projects') as FormArray;
-    projects.push(this.createProjectFormGroup());
+    const project = this.projectDetailsForm.get('project') as FormArray;
+    project.push(this.createProjectFormGroup());
   }
 
   public removeOrClearProject(i: number) {
-    const projects = this.projectDetailsForm.get('projects') as FormArray;
-    if (projects.length > 1) {
-      projects.removeAt(i);
+    const project = this.projectDetailsForm.get('project') as FormArray;
+    if (project.length > 1) {
+      project.removeAt(i);
     } else {
-      projects.reset();
+      project.reset();
     }
   }
 
@@ -68,10 +68,9 @@ export class ProjectFormComponent implements OnInit {
 
   addProjectDetails() {
     this.data = this.candidateService.getCandidatedetails();
-    this.data.project.push(this.projectDetailsForm.value.projects);
-    this.data.skills.push(this.projectDetailsForm.value.skills);
+    this.data.project = this.projectDetailsForm.value.project;
+    this.data.skills = this.projectDetailsForm.value.skills;
     this.candidateService.setCandidatedetails(this.data);
-    console.log(this.projectDetailsForm.value);
   }
 
 }

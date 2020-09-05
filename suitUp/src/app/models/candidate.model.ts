@@ -43,8 +43,8 @@ export interface Project {
     ongoing: boolean;
 }
 
-export interface Skill{
+export interface Skill {
     id: number;
-    name: string;
+    skillName: string;
     rating: number;
 }

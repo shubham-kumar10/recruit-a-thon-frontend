@@ -16,7 +16,7 @@ export class ExperienceFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.experienceDetailsForm = this.fb.group({
-      experiences: this.fb.array([this.createExperienceFormGroup()]),
+      experience: this.fb.array([this.createExperienceFormGroup()]),
     });
   }
 
@@ -46,11 +46,10 @@ export class ExperienceFormComponent implements OnInit {
     });
   }
 
-  addExperienceDetails(){
+  addExperienceDetails() {
     this.data = this.candidateService.getCandidatedetails();
-    this.data.experience.push(this.experienceDetailsForm.value);
+    this.data.experience = this.experienceDetailsForm.value.experience;
     this.candidateService.setCandidatedetails(this.data);
-    console.log(this.experienceDetailsForm.value);
   }
 
 }

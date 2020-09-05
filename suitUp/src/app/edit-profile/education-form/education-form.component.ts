@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray, FormControl} from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 import { CandidateService } from 'src/app/services/candidate.service';
 import { Education, Candidate } from 'src/app/models/candidate.model';
 
@@ -23,7 +23,7 @@ export class EducationFormComponent implements OnInit {
     // this.data = this.candidateService.getCandidatedetails();
     const educations = this.educationDetailsForm.get('educations') as FormArray;
     educations.push(this.createEducationFormGroup());
-    }
+  }
 
   public removeOrClearEducation(i: number) {
     const educations = this.educationDetailsForm.get('educations') as FormArray;
@@ -45,16 +45,9 @@ export class EducationFormComponent implements OnInit {
     });
   }
 
-  addEducationDetails(){
-
-/*  this.candidateService.addCandidateDetails(this.data).subscribe(
-    (data) => {
-      this.candidateService.setCandidatedetails(data);
-      console.log(data);
-    }); */
+  addEducationDetails() {
     this.data = this.candidateService.getCandidatedetails();
-    this.data.education.push(this.educationDetailsForm.value);
+    this.data.education = this.educationDetailsForm.value.educations;
     this.candidateService.setCandidatedetails(this.data);
-    console.log(this.educationDetailsForm.value);
   }
 }
