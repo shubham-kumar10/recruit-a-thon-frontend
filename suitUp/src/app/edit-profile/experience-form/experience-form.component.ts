@@ -37,8 +37,9 @@ export class ExperienceFormComponent implements OnInit {
       'emptype': new FormControl(''),
       'location': new FormControl(''),
       'company': new FormControl(''),
-      'duration': new FormControl(''),
-      'description': new FormControl('')
+      'sdate': new FormControl(''),
+      'edate': new FormControl(''),
+      'current': new FormControl(''),
     })
   }
 

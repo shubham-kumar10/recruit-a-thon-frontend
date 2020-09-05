@@ -19,16 +19,6 @@ export interface Education {
     percentage: string;
 }
 
-export interface Education {
-    id: number;
-    institution: string;
-    startDate: Date;
-    endDate: string;
-    degree: string;
-    description: string;
-    percentage: string;
-}
-
 export interface Experience {
     id: number;
     organization: string;

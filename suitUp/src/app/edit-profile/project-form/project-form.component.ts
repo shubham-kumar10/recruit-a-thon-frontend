@@ -34,7 +34,8 @@ export class ProjectFormComponent implements OnInit {
 
   private createSkillFormGroup(): FormGroup {
     return new FormGroup({
-      'skillz': new FormControl('')
+      'skillz': new FormControl(''),
+      'rating': new FormControl(''),
     })
   }
 
@@ -55,9 +56,10 @@ export class ProjectFormComponent implements OnInit {
   private createProjectFormGroup(): FormGroup {
     return new FormGroup({
       'projtitle': new FormControl(''),
-      'duration': new FormControl(''),
+      'sdate': new FormControl(''),
+      'edate': new FormControl(''),
       'description': new FormControl(''),
-      'team': new FormControl(''),
+      'ongoing': new FormControl(''),
     })
   }
 

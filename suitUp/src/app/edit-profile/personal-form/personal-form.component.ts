@@ -14,13 +14,13 @@ export class PersonalFormComponent implements OnInit {
   @Input() personalDetailsForm: FormGroup;
   isOptional = true;
   isChecked = false;
-  name = this.authService.getUserDetails().firstname + this.authService.getUserDetails().lastname;
+  email = this.authService.getUserDetails()? this.authService.getUserDetails().username: null;
   constructor(private fb: FormBuilder, private candidateService: CandidateService, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
 
     this.personalDetailsForm = this.fb.group({
-      name: ['', Validators.required],
+      email: ['', Validators.required],
       dob: ['', Validators.required],
       country: ['', Validators.required],
       contact: ['', Validators.required],
@@ -29,16 +29,18 @@ export class PersonalFormComponent implements OnInit {
       state: ['', Validators.required],
       address: ['', Validators.required],
       gender: ['', Validators.required],
+      summary: ['', Validators.required],
       role: ['', Validators.required]
     });
 
+    this.personalDetailsForm.patchValue({email: this.email});
   }
 
   addCandidateDetails(): void {
 
     const candidateData: Candidate = {
       id: null,
-      bio: this.personalDetailsForm.get('').value,
+      bio: this.personalDetailsForm.get('summary').value,
       city: this.personalDetailsForm.get('city').value,
       country: this.personalDetailsForm.get('country').value,
       dateOfBirth: this.personalDetailsForm.get('dob').value,

@@ -15,14 +15,12 @@
                       <div class="col-xs-6">
                         <input type="text" id='projtitle'
                           onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
-                          class="form-control" aria-describedby="emailHelp" placeholder="Enter your project title"
+                          class="form-control" placeholder="Enter your project title"
                           formControlName="projtitle" required>
                       </div>&nbsp;&nbsp;&nbsp;
-                      <label for="duration" class="col-sm-2 col-form-label text-nowrap">Duration:</label>
-                      <div class="col-xs-6">
-                        <input type="text" class="form-control" id="duration" aria-describedby="emailHelp" placeholder="yyyy"
-                          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="4"
-                          formControlName="duration" required>
+                      <label for="sdate" class="col-sm-2 col-form-label text-nowrap">Starting date:</label>
+                      <div class="col-xs-4">
+                        <input type="date" id="sdate" class="form-control" placeholder="dd-mm-yyyy" value="" formControlName="sdate" required>
                       </div>
       
                       <div class="col-xs-4">
@@ -42,17 +40,21 @@
                       <div class="col-xs-4">
                         <input type="text" id='degree'
                           onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
-                          class="form-control" aria-describedby="emailHelp" placeholder="Describe your project"
+                          class="form-control" placeholder="Describe your project"
                           formControlName="description" required>
                       </div>&nbsp;&nbsp;&nbsp;
-                      <label for="team" class="col-sm-2 col-form-label text-nowrap">Team members:</label>
+                      <label for="edate" class="col-sm-2 col-form-label text-nowrap">Ending date:</label>
                       <div class="col-xs-4">
-                        <input class="form-control" id="stream" aria-describedby="emailHelp"
-                          placeholder="Add your team members" type="text"
-                          onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
-                          maxlength="10" formControlName="team" required>
+                        <input type="date" id="edate" class="form-control" placeholder="dd-mm-yyyy" value="" formControlName="edate" required>
                       </div>
                     </div>
+
+                    <div class="form-group row">
+                      <div class="col-xs-4">
+                          <mat-checkbox class="col-12" formControlName="ongoing" color="primary">Ongoing</mat-checkbox>
+                      </div>
+                  </div>
+
                     <hr>
                   </div>
                 </div>
@@ -81,6 +83,14 @@
                         <input class="form-control" formControlName="skillz" placeholder="Skills {{i+1}}"
                           autocomplete="skill">
                       </div>&nbsp;&nbsp;&nbsp;
+                      <div class="col-xs-4 pt-2">
+                        <mat-radio-group formControlName="rating" aria-label="rating" color="primary">
+                          <mat-radio-button value="1">Novice</mat-radio-button> &nbsp;&nbsp;&nbsp;
+                          <mat-radio-button value="2">Intermediate</mat-radio-button> &nbsp;&nbsp;&nbsp;
+                          <mat-radio-button value="3">Advanced</mat-radio-button> &nbsp;&nbsp;&nbsp;
+                      </mat-radio-group>
+                      </div>
+                      
 
                     <!--  <app-bar-rating [(rate)]="rate" [max]="3" [theme]="'movie'" [showText]="true"
                       [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"></app-bar-rating>-->
