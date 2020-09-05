@@ -14,7 +14,7 @@ export class PersonalFormComponent implements OnInit {
   @Input() personalDetailsForm: FormGroup;
   isOptional = true;
   isChecked = false;
-  email = this.authService.getUserDetails()? this.authService.getUserDetails().username: null;
+  email = this.authService.getUserDetails() ? this.authService.getUserDetails().username : null;
   constructor(private fb: FormBuilder, private candidateService: CandidateService, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
@@ -46,11 +46,18 @@ export class PersonalFormComponent implements OnInit {
       dateOfBirth: this.personalDetailsForm.get('dob').value,
       gender: this.personalDetailsForm.get('gender').value,
       profilePicture: null,
-      resume: null
+      resume: null,
+      education: [],
+      project: [],
+      experience: [],
+      skills: [],
     };
-    this.candidateService.addCandidateDetails(candidateData).subscribe(
-    (data) => {
+
+    this.candidateService.setCandidatedetails(candidateData);
+  /*  this.candidateService.addCandidateDetails(candidateData).subscribe(
+      (data) => {
+        this.candidateService.setCandidatedetails(data);
         console.log(data);
-      });
+      }); */
   }
 }

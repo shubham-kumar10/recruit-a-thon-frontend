@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormArray, FormControl, FormBuilder } from '@angular/forms';
+import { Candidate } from 'src/app/models/candidate.model';
+import { CandidateService } from 'src/app/services/candidate.service';
 
 @Component({
   selector: 'app-project-form',
@@ -9,7 +11,8 @@ import { FormGroup, FormArray, FormControl, FormBuilder } from '@angular/forms';
 export class ProjectFormComponent implements OnInit {
 
   @Input() projectDetailsForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  data: Candidate;
+  constructor(private fb: FormBuilder, private candidateService: CandidateService) { }
 
   ngOnInit(): void {
     this.projectDetailsForm = this.fb.group({
@@ -19,48 +22,56 @@ export class ProjectFormComponent implements OnInit {
   }
 
   public addSkillFormGroup() {
-    const skills = this.projectDetailsForm.get('skills') as FormArray
-    skills.push(this.createSkillFormGroup())
+    const skills = this.projectDetailsForm.get('skills') as FormArray;
+    skills.push(this.createSkillFormGroup());
   }
 
   public removeOrClearSkill(i: number) {
-    const skills = this.projectDetailsForm.get('skills') as FormArray
+    const skills = this.projectDetailsForm.get('skills') as FormArray;
     if (skills.length > 1) {
-      skills.removeAt(i)
+      skills.removeAt(i);
     } else {
-      skills.reset()
+      skills.reset();
     }
   }
 
   private createSkillFormGroup(): FormGroup {
     return new FormGroup({
-      'skillz': new FormControl(''),
-      'rating': new FormControl(''),
-    })
+      skillz: new FormControl(''),
+      rating: new FormControl(''),
+    });
   }
 
   public addProjectFormGroup() {
-    const projects = this.projectDetailsForm.get('projects') as FormArray
-    projects.push(this.createProjectFormGroup())
+    const projects = this.projectDetailsForm.get('projects') as FormArray;
+    projects.push(this.createProjectFormGroup());
   }
 
   public removeOrClearProject(i: number) {
-    const projects = this.projectDetailsForm.get('projects') as FormArray
+    const projects = this.projectDetailsForm.get('projects') as FormArray;
     if (projects.length > 1) {
-      projects.removeAt(i)
+      projects.removeAt(i);
     } else {
-      projects.reset()
+      projects.reset();
     }
   }
 
   private createProjectFormGroup(): FormGroup {
     return new FormGroup({
-      'projtitle': new FormControl(''),
-      'sdate': new FormControl(''),
-      'edate': new FormControl(''),
-      'description': new FormControl(''),
-      'ongoing': new FormControl(''),
-    })
+      projtitle: new FormControl(''),
+      sdate: new FormControl(''),
+      edate: new FormControl(''),
+      description: new FormControl(''),
+      ongoing: new FormControl(''),
+    });
+  }
+
+  addProjectDetails() {
+    this.data = this.candidateService.getCandidatedetails();
+    this.data.project.push(this.projectDetailsForm.value.projects);
+    this.data.skills.push(this.projectDetailsForm.value.skills);
+    this.candidateService.setCandidatedetails(this.data);
+    console.log(this.projectDetailsForm.value);
   }
 
 }

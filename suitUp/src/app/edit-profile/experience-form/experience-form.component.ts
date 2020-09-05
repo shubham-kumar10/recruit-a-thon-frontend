@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
+import { Candidate } from 'src/app/models/candidate.model';
+import { CandidateService } from 'src/app/services/candidate.service';
 
 @Component({
   selector: 'app-experience-form',
@@ -9,7 +11,8 @@ import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 export class ExperienceFormComponent implements OnInit {
 
   @Input() experienceDetailsForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  data: Candidate;
+  constructor(private fb: FormBuilder, private candidateService: CandidateService) { }
 
   ngOnInit(): void {
     this.experienceDetailsForm = this.fb.group({
@@ -18,29 +21,36 @@ export class ExperienceFormComponent implements OnInit {
   }
 
   public addExperienceFormGroup() {
-    const experiences = this.experienceDetailsForm.get('experiences') as FormArray
-    experiences.push(this.createExperienceFormGroup())
+    const experiences = this.experienceDetailsForm.get('experiences') as FormArray;
+    experiences.push(this.createExperienceFormGroup());
   }
 
   public removeOrClearExperience(i: number) {
-    const experiences = this.experienceDetailsForm.get('experiences') as FormArray
+    const experiences = this.experienceDetailsForm.get('experiences') as FormArray;
     if (experiences.length > 1) {
-      experiences.removeAt(i)
+      experiences.removeAt(i);
     } else {
-      experiences.reset()
+      experiences.reset();
     }
   }
 
   private createExperienceFormGroup(): FormGroup {
     return new FormGroup({
-      'position': new FormControl(''),
-      'emptype': new FormControl(''),
-      'location': new FormControl(''),
-      'company': new FormControl(''),
-      'sdate': new FormControl(''),
-      'edate': new FormControl(''),
-      'current': new FormControl(''),
-    })
+      position: new FormControl(''),
+      emptype: new FormControl(''),
+      location: new FormControl(''),
+      company: new FormControl(''),
+      sdate: new FormControl(''),
+      edate: new FormControl(''),
+      current: new FormControl(''),
+    });
+  }
+
+  addExperienceDetails(){
+    this.data = this.candidateService.getCandidatedetails();
+    this.data.experience.push(this.experienceDetailsForm.value);
+    this.candidateService.setCandidatedetails(this.data);
+    console.log(this.experienceDetailsForm.value);
   }
 
 }

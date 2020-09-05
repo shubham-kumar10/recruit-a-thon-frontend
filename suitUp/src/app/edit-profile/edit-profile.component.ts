@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Candidate } from '../models/candidate.model';
 
 @Component({
   selector: 'app-edit-profile',
@@ -14,7 +15,7 @@ export class EditProfileComponent implements OnInit {
   additionalDetailsForm: FormGroup;
   isOptional = true;
   isChecked = false;
-  
+
   constructor() { }
 
   ngOnInit(): void {
