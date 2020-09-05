@@ -8,7 +8,7 @@
     <!--Second Form Stepper Education Details-->
     <mat-step [stepControl]="educationDetailsForm" [optional]="isOptional">
         <ng-template matStepLabel>Education Details</ng-template>
-        <app-education-form [educationDetailsForm]="educationDetailsForm"></app-education-form>
+        <app-education-form [educationDetailsForm]="educationDetailsForm" [data]="data"></app-education-form>
     </mat-step>
   
     <!--THrid Form Stepper Experience Details-->

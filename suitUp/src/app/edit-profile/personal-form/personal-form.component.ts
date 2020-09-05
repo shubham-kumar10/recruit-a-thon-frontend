@@ -46,11 +46,18 @@ export class PersonalFormComponent implements OnInit {
       dateOfBirth: this.personalDetailsForm.get('dob').value,
       gender: this.personalDetailsForm.get('gender').value,
       profilePicture: null,
-      resume: null
+      resume: null,
+      education: [],
+      project: [],
+      experience: [],
+      skills: [],
     };
-    this.candidateService.addCandidateDetails(candidateData).subscribe(
-    (data) => {
+
+    this.candidateService.setCandidatedetails(candidateData);
+  /*  this.candidateService.addCandidateDetails(candidateData).subscribe(
+      (data) => {
+        this.candidateService.setCandidatedetails(data);
         console.log(data);
-      });
+      }); */
   }
 }

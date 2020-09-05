@@ -7,13 +7,17 @@ export interface Candidate {
     city: string;
     profilePicture: any;
     resume: any;
+    education: Education[];
+    project: Project[];
+    experience: Experience[];
+    skills: Skill[];
 }
 
 export interface Education {
     id: number;
     institution: string;
     startDate: Date;
-    endDate: string;
+    endDate: Date;
     degree: string;
     description: string;
     percentage: string;
