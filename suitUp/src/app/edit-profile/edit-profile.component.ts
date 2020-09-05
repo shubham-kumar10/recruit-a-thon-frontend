@@ -17,11 +17,12 @@ export class EditProfileComponent implements OnInit {
   data: Candidate;
   isOptional = true;
   isChecked = false;
-  
+
   constructor(private candidateService: CandidateService) { }
 
   ngOnInit(): void {
     this.data = this.candidateService.getCandidatedetails();
+    console.log(this.data);
   }
 
 }

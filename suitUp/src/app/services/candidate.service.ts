@@ -11,13 +11,14 @@ import { environment } from 'src/environments/environment';
 export class CandidateService {
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
+
   private candidateDetails: Candidate;
   candidateUrl = environment.baseUrl + 'profile';
   commonUrl = environment.baseUrl + 'edit';
   educationUrl = 'education';
   experienceUrl = 'project';
-  projectUrl= 'experience';
-  skillUrl= 'skills';
+  projectUrl = 'experience';
+  skillUrl = 'skills';
 
   getCandidatedetails(): Candidate {
     return this.candidateDetails;
