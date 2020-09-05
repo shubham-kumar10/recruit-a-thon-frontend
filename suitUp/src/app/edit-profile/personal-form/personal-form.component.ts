@@ -14,7 +14,7 @@ export class PersonalFormComponent implements OnInit {
   @Input() personalDetailsForm: FormGroup;
   isOptional = true;
   isChecked = false;
-  email = this.authService.getUserDetails()? this.authService.getUserDetails().username: null;
+  email = this.authService.getUserDetails() ? this.authService.getUserDetails().username : null;
   constructor(private fb: FormBuilder, private candidateService: CandidateService, private authService: AuthenticationService) { }
 
   ngOnInit(): void {

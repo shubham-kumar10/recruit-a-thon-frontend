@@ -90,10 +90,6 @@
                           <mat-radio-button value="3">Advanced</mat-radio-button> &nbsp;&nbsp;&nbsp;
                       </mat-radio-group>
                       </div>
-                      
-
-                    <!--  <app-bar-rating [(rate)]="rate" [max]="3" [theme]="'movie'" [showText]="true"
-                      [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"></app-bar-rating>-->
 
                       <div class="col-xs-4">
                         <button class="float-left" mat-icon-button color="primary" aria-label="Add"
@@ -117,5 +113,9 @@
       </div>
 
     <button mat-button matStepperPrevious>Back</button>
-    <button mat-button matStepperNext>Next</button>
+    <button mat-button matStepperNext (click)="addProjectDetails()">Next</button>
 </form>
+
+<br>  
+
+{{projectDetailsForm.value | json}}
