@@ -53,7 +53,8 @@ export class EducationFormComponent implements OnInit {
       console.log(data);
     }); */
     this.data = this.candidateService.getCandidatedetails();
-    this.data.experience.push(this.educationDetailsForm.value);
+    this.data.education.push(this.educationDetailsForm.value);
+    this.candidateService.setCandidatedetails(this.data);
     console.log(this.educationDetailsForm.value);
   }
 }

@@ -70,6 +70,7 @@ export class ProjectFormComponent implements OnInit {
     this.data = this.candidateService.getCandidatedetails();
     this.data.project.push(this.projectDetailsForm.value.projects);
     this.data.skills.push(this.projectDetailsForm.value.skills);
+    this.candidateService.setCandidatedetails(this.data);
     console.log(this.projectDetailsForm.value);
   }
 
