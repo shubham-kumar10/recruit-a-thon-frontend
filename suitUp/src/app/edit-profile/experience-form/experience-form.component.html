@@ -47,7 +47,6 @@
                                     <label for="company" class="col-sm-2 col-form-label text-nowrap">Company:</label>
                                     <div class="col-xs-4">
                                         <input type="text" id='company' maxlength="20"
-                                            onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
                                             class="form-control" placeholder="Company name" formControlName="company"
                                             required>
                                     </div>&nbsp;&nbsp;&nbsp;
@@ -63,9 +62,7 @@
                                     <label for="location" class="col-sm-2 col-form-label text-nowrap">Location:</label>
                                     <div class="col-xs-4">
                                         <input class="form-control" id="location" placeholder="Company location"
-                                            type="text"
-                                            onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
-                                            maxlength="10" formControlName="location" required>
+                                            type="text" maxlength="15" formControlName="location" required>
                                     </div>&nbsp;&nbsp;&nbsp;
                                     <label for="edate" class="col-sm-2 col-form-label text-nowrap">Ending date:</label>
                                     <div class="col-xs-4">
