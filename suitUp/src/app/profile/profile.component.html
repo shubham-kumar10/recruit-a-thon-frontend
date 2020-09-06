@@ -1,56 +1,150 @@
-<div>
-    <div class="row">
-      <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
-        <div class="card border-0 rounded-0 h-100">
-          <div class="card-title mb-1 p-3">
-            <div class="row">
-              <div class="col-lg-6"><h4>Personal Details</h4></div>
-              <div class="col-lg-6">
-            <a class="nav-link active" routerLink='/editprofile' routerLinkActive="active">
-              <i class="fa fa-pencil"> Edit</i></a></div>
-          </div></div>
-          <div class="card-body">
-            <form>
-              <div class="form-group row">
-                <label for="husername" class="col-sm-2 col-form-label text-nowrap">Name:</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control rounded-0" id="husername"
-                    placeholder="Enter name">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label text-nowrap">Email:</label>
-                <div class="col-sm-10">
-                  <input type="email" class="form-control rounded-0" id="staticEmail"
-                    placeholder="Enter email">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="husername" class="col-sm-2 col-form-label text-nowrap">Address:</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control rounded-0" id="husername"
-                    placeholder="Enter Address">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="" class="col-sm-2 col-form-label "></label>
-                <div class="col-sm-10">
-                  <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                    <input type="checkbox" class="custom-control-input" id="hcustomControlInline" checked>
-                    <label class="custom-control-label" for="hcustomControlInline">Remember me</label>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="" class="col-sm-2 col-form-label"></label>
-                <div class="col-sm-10 mb-3">
-                  <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2">Submit</button>
-                  <button type="button " class="btn btn-outline-lightning rounded-0 mb-2">Cancel</button>
-                </div>
-              </div>
-            </form>
+<div class="row">
+  <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+      <div class="card-title mb-1 px-3 pt-3">
+        <div class="row">
+          <h4 class="col-lg-6 pt-2">Personal Details</h4>
+          <div class="col-lg-6">
+            <a class="btn btn-outline-lightning rounded-0 px-2 py-1 waves-effect waves-light float-right">
+              <i class="far fa-edit"></i>
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row mb-1">
+            <div class="col-4 p-0">Date of Birth:</div>
+            <div class="col-8">{{candidateDetails.dateOfBirth | date}}</div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-4 p-0">Gender:</div>
+            <div class="col-8">{{candidateDetails.gender}}</div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-4 p-0">Lcation:</div>
+            <div class="col-8">{{candidateDetails.city}}, {{candidateDetails.country}}</div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-4 p-0">Email:</div>
+            <div class="col-8">{{userDetails.username}}</div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-4 p-0">Contact Number:</div>
+            <div class="col-8">{{userDetails.contactnumber}}</div>
           </div>
         </div>
       </div>
+
+      <div class="card-title mb-1 px-3">
+        <div class="row">
+          <h4 class="col-lg-6 pt-2">Education Details</h4>
+          <div class="col-lg-6">
+            <a class="btn btn-outline-lightning rounded-0 px-2 py-1 waves-effect waves-light float-right">
+              <i class="far fa-edit"></i>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="candidateDetails.education.length > 0; else addEducation">
+          <div class="card-body pb-0" *ngFor="let data of candidateDetails.education">
+            <div class="row mb-1">
+              <div class="col-4 p-0">Institution:</div>
+              <div class="col-8">{{data.institution}}</div>
+            </div>
+            <div class="row mb-1">
+              <div class="col-4 p-0">Board/Degree:</div>
+              <div class="col-8">{{data.degree}}</div>
+            </div>
+            <div class="row mb-1">
+              <div class="col-4 p-0">Major:</div>
+              <div class="col-8">{{data.description}}</div>
+            </div>
+            <div class="row mb-1">
+              <div class="col-4 p-0">Percentage/CGPA</div>
+              <div class="col-8">{{data.percentage}}</div>
+            </div>
+            <div class="row mb-1">
+              <div class="col-4 p-0">Course Duration:</div>
+              <div class="col-8">{{data.startDate | date}} - {{data.endDate | date}}</div>
+            </div>
+          </div>
+        </div>
+        <ng-template #addEducation>
+          <div class="card-body">
+            <alert type="info">Add your academic details.</alert>
+          </div>
+        </ng-template>
+      </div>
     </div>
   </div>
+  <div class="col-md-12 col-lg-6 mb-4 align-items-stretch pl-0">
+    <div class="card border-0 rounded-0 h-100">
+      <div class="card-title mb-1 px-3 pt-3 pb-2">
+        <div class="row">
+          <h4 class="col-lg-6 pt-2">Experience Details:</h4>
+          <div class="col-lg-6">
+            <a class="btn btn-outline-lightning rounded-0 px-2 py-1 waves-effect waves-light float-right">
+              <i class="far fa-edit"></i>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="candidateDetails.experience.length > 0;else addExperience">
+          <div class="card-body pb-0" *ngFor="let data of candidateDetails.experience">
+            <div class="row mb-1">
+              <div class="col-4 p-0">Organization:</div>
+              <div class="col-8">{{data.organization}}</div>
+            </div>
+            <div class="row mb-1">
+              <div class="col-4 p-0">Position/Role</div>
+              <div class="col-8">{{data.designation}}</div>
+            </div>
+            <div class="row mb-1">
+              <div class="col-4 p-0">Employement Type:</div>
+              <div class="col-8">{{data.type}}</div>
+            </div>
+            <div class="row mb-1" *ngIf="data.endDate && !data.current">
+              <div class="col-4 p-0">Period:</div>
+              <div class="col-8">{{data.startDate | date}} - {{data.endDate | date}}</div>
+            </div>
+            <div class="row mb-1" *ngIf="data.current">
+              <div class="col-12 p-0">I am currently working here since {{data.startDate | date}}.</div>
+            </div>
+          </div>
+        </div>
+        <ng-template #addExperience>
+          <div class="card-body">
+            <alert type="info">Tell us where you worked.</alert>
+          </div>
+        </ng-template>
+      </div>
+
+      <div class="card-title mb-1 px-3">
+        <div class="row">
+          <h4 class="col-lg-6 pt-2">Your Projects</h4>
+          <div class="col-lg-6">
+            <a class="btn btn-outline-lightning rounded-0 px-2 py-1 waves-effect waves-light float-right">
+              <i class="far fa-edit"></i>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="candidateDetails.project.length > 0; else addProject">
+          <div class="card-body" *ngFor="let data of candidateDetails.project">
+            <div class="row mb-1">
+              <div class="col-4 p-0">Title:</div>
+              <div class="col-8">{{data.name}} ({{data.startDate | date}} - {{data.endDate | date}})</div>
+            </div>
+            <div class="row">
+              <div class="col-4 p-0">About:</div>
+            </div>
+            <div class="row mb-1">
+              <div class="col-12">{{data.description}}</div>
+            </div>
+          </div>
+        </div>
+        <ng-template #addProject>
+          <div class="card-body">
+            <alert type="info">Add projects to showcase your work.</alert>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

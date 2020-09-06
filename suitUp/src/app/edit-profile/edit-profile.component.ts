@@ -23,7 +23,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   addCandidateDetails(): void {
-    this.candidateService.addCandidateDetails(this.candidateService.getCandidatedetails()).subscribe(
+    this.candidateService.addCandidateDetails(this.candidateService.getCandidateDetails()).subscribe(
       (data) => { console.log(data); });
 
   }
