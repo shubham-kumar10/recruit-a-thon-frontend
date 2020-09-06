@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CandidateService } from 'src/app/services/candidate.service';
 import { Candidate } from 'src/app/models/candidate.model';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { LoggedInUser } from 'src/app/models/user';
 
 @Component({
   selector: 'app-personal-form',
@@ -51,11 +52,12 @@ export class PersonalFormComponent implements OnInit {
       skills: [],
     };
 
+    const userData: LoggedInUser = this.authService.getUserDetails();
+    userData.role = this.personalDetailsForm.get('role').value;
+    userData.contactnumber = this.personalDetailsForm.get('contact').value;
+    userData.username = this.personalDetailsForm.get('email').value;
+
     this.candidateService.setCandidatedetails(candidateData);
-    /*  this.candidateService.addCandidateDetails(candidateData).subscribe(
-        (data) => {
-          this.candidateService.setCandidatedetails(data);
-          console.log(data);
-        }); */
+    this.authService.updateUseDetails(userData);
   }
 }

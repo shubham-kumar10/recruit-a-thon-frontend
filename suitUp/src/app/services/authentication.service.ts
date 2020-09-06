@@ -23,6 +23,13 @@ export class AuthenticationService {
         this.userDetails = userDetails;
     }
 
+    updateUseDetails(userData: LoggedInUser): Observable<boolean> {
+        let headers = new HttpHeaders();
+        headers = headers.set('Authorization', 'Bearer ' + this.getUserDetails().token);
+        const url: string = environment.baseUrl + '/user';
+        return this.httpClient.put<boolean>(url, userData, { headers });
+    }
+
     authenticate(user: string, password: string): Observable<LoggedInUser> {
         let headers = new HttpHeaders();
         headers = headers.set('Authorization', 'Basic ' + btoa(user + ':' + password));
