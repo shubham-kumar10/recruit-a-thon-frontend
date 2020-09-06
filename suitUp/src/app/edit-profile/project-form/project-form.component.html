@@ -79,7 +79,7 @@
                 <div class="row" *ngFor="let skill of projectDetailsForm.get('skills')['controls']; let i = index"
                   [formGroupName]="i">
                   <div class="col-xs-4">
-                    <input class="form-control" formControlName="skillz" placeholder="Skills {{i+1}}"
+                    <input class="form-control" formControlName="skillName" placeholder="Skills {{i+1}}"
                       autocomplete="skill">
                   </div>&nbsp;&nbsp;&nbsp;
                   <div class="col-xs-4 pt-2">
