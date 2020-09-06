@@ -16,8 +16,8 @@ export class CandidateService {
   commonUrl = environment.baseUrl + 'edit';
   educationUrl = 'education';
   experienceUrl = 'project';
-  projectUrl= 'experience';
-  skillUrl= 'skills';
+  projectUrl = 'experience';
+  skillUrl = 'skills';
 
   getCandidatedetails(): Candidate {
     return this.candidateDetails;

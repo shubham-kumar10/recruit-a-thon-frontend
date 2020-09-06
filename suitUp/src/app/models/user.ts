@@ -13,4 +13,7 @@ export interface LoggedInUser {
     lastname: string;
     username: string;
     token: string;
+    role: string;
+    contactnumber: number;
+    confirmedSignup: boolean;
 }
