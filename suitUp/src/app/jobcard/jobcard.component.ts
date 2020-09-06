@@ -4,7 +4,7 @@ import { Job } from '../models/jobs.model';
 @Component({
   selector: 'app-jobcard',
   templateUrl: './jobcard.component.html',
-  styleUrls: ['./jobcard.component.css']
+  styleUrls: ['./jobcard.component.scss']
 })
 export class JobcardComponent implements OnInit {
 
