@@ -70,7 +70,7 @@ export class CandidateService {
   }
 
   statusfilter(status: string) {
-    const list = this.getCandidateDetails().application.filter(item => item.status === status);
+    const list = this.getCandidateDetails().applications.filter(item => item.status === status);
     return list;
   }
 }
