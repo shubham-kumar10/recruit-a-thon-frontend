@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthenticationService } from './authentication.service';
 import { CandidateService } from '../services/candidate.service';
 import { Observable } from 'rxjs';
-import { Application } from '../models/candidate.model';
+import {  Candidate } from '../models/candidate.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,24 +16,24 @@ export class ApplicationService {
   withdrawUrl = environment.baseUrl + 'withdraw';
   saveUrl = environment.baseUrl + 'save';
 
-  applyJobs(canId: number, jobId: number): Observable<Application> {
+  applyJobs(canId: number, jobId: number): Observable<Candidate> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this.authService.getUserDetails().token);
     const url: string = this.applyUrl + '/' + canId + jobId;
-    return this.http.get<Application>(url, { headers });
+    return this.http.post<Candidate>(url, { headers });
   }
 
-  withdrawJobs(appId: number): Observable<Application> {
+  withdrawJobs(appId: number): Observable<Candidate> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this.authService.getUserDetails().token);
     const url: string = this.withdrawUrl + '/' + appId;
-    return this.http.get<Application>(url, { headers });
+    return this.http.post<Candidate>(url, { headers });
   }
 
-  saveJobs(canId: number, jobId: number): Observable<Application> {
+  saveJobs(canId: number, jobId: number): Observable<Candidate> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this.authService.getUserDetails().token);
     const url: string = this.applyUrl + '/' + canId + jobId;
-    return this.http.get<Application>(url, { headers });
+    return this.http.post<Candidate>(url, { headers });
   }
 }
