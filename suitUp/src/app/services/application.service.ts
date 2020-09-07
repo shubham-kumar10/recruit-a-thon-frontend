@@ -19,7 +19,7 @@ export class ApplicationService {
   applyJobs(canId: number, jobId: number): Observable<Candidate> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this.authService.getUserDetails().token);
-    const url: string = this.applyUrl + '/' + canId + jobId;
+    const url: string = this.applyUrl + '/' + canId + '/' + jobId;
     return this.http.post<Candidate>(url, { headers });
   }
 
@@ -33,7 +33,7 @@ export class ApplicationService {
   saveJobs(canId: number, jobId: number): Observable<Candidate> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this.authService.getUserDetails().token);
-    const url: string = this.applyUrl + '/' + canId + jobId;
+    const url: string = this.saveUrl + '/' + canId + '/' + jobId;
     return this.http.post<Candidate>(url, { headers });
   }
 }
