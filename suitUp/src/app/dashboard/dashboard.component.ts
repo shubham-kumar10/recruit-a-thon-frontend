@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
-// import { JobService } from '../services/job.service';
-// import { Job } from '../models/jobs.model';
 
 @Component({
   selector: 'app-dashboard',
