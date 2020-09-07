@@ -11,6 +11,9 @@ export interface Job {
     vacancies: number;
     position: string;
     process: Process;
+    skillsRequired: JobRequirement[];
+    minimumExperience: number;
+    minimumEducation: string;
 }
 
 export interface Process {
@@ -27,4 +30,10 @@ export interface Rounds {
     duration: string;
     pointOfContact: string;
     description: string;
+}
+
+export interface JobRequirement {
+    id: number;
+    name: string;
+    experience: number;
 }
