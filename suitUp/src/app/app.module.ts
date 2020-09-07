@@ -29,6 +29,7 @@ import { ExperienceFormComponent } from './edit-profile/experience-form/experien
 import { PersonalFormComponent } from './edit-profile/personal-form/personal-form.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ProjectFormComponent } from './edit-profile/project-form/project-form.component';
+import { JobsComponent } from './jobs/jobs.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ProjectFormComponent } from './edit-profile/project-form/project-form.c
     PersonalFormComponent,
     EditProfileComponent,
     ProjectFormComponent,
+    JobsComponent,
   ],
   imports: [
     BrowserModule,

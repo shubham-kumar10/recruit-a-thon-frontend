@@ -1,3 +1,5 @@
+import { Job } from './jobs.model';
+
 export interface Candidate {
     id: number;
     dateOfBirth: Date;
@@ -11,6 +13,7 @@ export interface Candidate {
     project: Project[];
     experience: Experience[];
     skills: Skill[];
+    application: Application[];
 }
 
 export interface Education {
@@ -47,4 +50,14 @@ export interface Skill {
     id: number;
     skillName: string;
     rating: number;
+}
+
+export interface Application {
+    applicationId: number;
+    appliedOn: Date;
+    status: string;
+    isComplete: boolean;
+    skillMatch: number;
+    percentile: number;
+    job: Job;
 }
