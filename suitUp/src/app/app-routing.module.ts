@@ -7,9 +7,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { JobsComponent } from './jobs/jobs.component';
+import { AppliedJobsComponent } from './applied-jobs/applied-jobs.component';
+import { SavedJobsComponent } from './saved-jobs/saved-jobs.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: SignUpComponent },
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'editprofile', component: EditProfileComponent },
   { path: 'jobs', component: JobsComponent },
+  { path: 'appliedjobs', component: AppliedJobsComponent },
+  { path: 'savedjobs', component: SavedJobsComponent },
 ];
 
 @NgModule({

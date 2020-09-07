@@ -68,4 +68,9 @@ export class CandidateService {
     const url: string = this.commonUrl + '/' + this.getCandidateDetails().id + '/' + this.skillUrl;
     return this.http.post<Skill>(url, SkillDetails, { headers });
   }
+
+  statusfilter(status: string) {
+    const list = this.getCandidateDetails().applications.filter(item => item.status === status);
+    return list;
+  }
 }
