@@ -30,6 +30,8 @@ import { PersonalFormComponent } from './edit-profile/personal-form/personal-for
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ProjectFormComponent } from './edit-profile/project-form/project-form.component';
 import { JobsComponent } from './jobs/jobs.component';
+import { AppliedJobsComponent } from './applied-jobs/applied-jobs.component';
+import { SavedJobsComponent } from './saved-jobs/saved-jobs.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { JobsComponent } from './jobs/jobs.component';
     EditProfileComponent,
     ProjectFormComponent,
     JobsComponent,
+    AppliedJobsComponent,
+    SavedJobsComponent,
   ],
   imports: [
     BrowserModule,
