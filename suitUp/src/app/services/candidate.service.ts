@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CandidateService {
 
+
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
   private candidateDetails: Candidate;
   candidateUrl = environment.baseUrl + 'profile';
@@ -18,6 +19,7 @@ export class CandidateService {
   experienceUrl = 'project';
   projectUrl = 'experience';
   skillUrl = 'skills';
+  profilePicture: any;
 
   getCandidateDetails(): Candidate {
     return this.candidateDetails;
@@ -72,5 +74,19 @@ export class CandidateService {
   statusfilter(status: string) {
     const list = this.getCandidateDetails().applications.filter(item => item.status === status);
     return list;
+  }
+
+  uploadFile(file: FormData): Observable<any> {
+    const url = this.candidateUrl + '/image/' + this.candidateDetails.id;
+    return this.http.post<any>(url, file);
+  }
+
+  getProfilePicture(): string {
+    const url = this.candidateUrl + '/image/' + this.candidateDetails.id;
+    let retrieveResonse;
+    this.http.get(url).subscribe(
+      (response) => { retrieveResonse = 'data:image/jpeg;base64,' + response; });
+    this.profilePicture = retrieveResonse;
+    return retrieveResonse;
   }
 }

@@ -1,1 +1,7 @@
-<p>jobs works!</p>
+<div class="col-4">
+    <input type="file" (change)="onFileChanged($event)" />
+</div>
+
+<div class="col-4">
+    <input type="button" (click)="onUploadClick()" value="upload" />
+</div>

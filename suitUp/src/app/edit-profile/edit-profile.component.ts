@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Candidate } from '../models/candidate.model';
 import { CandidateService } from '../services/candidate.service';
 
 @Component({

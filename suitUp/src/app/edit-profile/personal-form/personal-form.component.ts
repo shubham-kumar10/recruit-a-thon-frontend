@@ -4,6 +4,7 @@ import { CandidateService } from 'src/app/services/candidate.service';
 import { Candidate } from 'src/app/models/candidate.model';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { LoggedInUser } from 'src/app/models/user';
+import { unescapeIdentifier } from '@angular/compiler';
 
 @Component({
   selector: 'app-personal-form',
@@ -19,7 +20,6 @@ export class PersonalFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private candidateService: CandidateService, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
-
     this.personalDetailsForm = this.fb.group({
       email: ['', Validators.required],
       dob: ['', Validators.required],
@@ -52,6 +52,8 @@ export class PersonalFormComponent implements OnInit {
       skills: [],
       applications: [],
     };
+
+    console.log(candidateData);
 
     const userData: LoggedInUser = this.authService.getUserDetails();
     userData.role = this.personalDetailsForm.get('role').value;
