@@ -40,4 +40,11 @@ export class AuthenticationService {
         this.getUserDetails().token = null;
         this.getUserDetails().id = null;
     }
+
+    public isLoggedIn(): boolean {
+        if (this.getUserDetails()) {
+            return true;
+        }
+        return false;
+    }
 }

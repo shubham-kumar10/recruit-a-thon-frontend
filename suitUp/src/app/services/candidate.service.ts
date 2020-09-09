@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CandidateService {
 
-  constructor (private http: HttpClient, private authService: AuthenticationService) { }
+  constructor(private http: HttpClient, private authService: AuthenticationService) { }
   private candidateDetails: Candidate;
 
   candidateUrl = environment.baseUrl + 'profile';
