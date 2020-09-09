@@ -24,6 +24,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
 import { EducationFormComponent } from './edit-profile/education-form/education-form.component';
 import { ExperienceFormComponent } from './edit-profile/experience-form/experience-form.component';
 import { PersonalFormComponent } from './edit-profile/personal-form/personal-form.component';
@@ -32,6 +33,7 @@ import { ProjectFormComponent } from './edit-profile/project-form/project-form.c
 import { JobsComponent } from './jobs/jobs.component';
 import { AppliedJobsComponent } from './applied-jobs/applied-jobs.component';
 import { SavedJobsComponent } from './saved-jobs/saved-jobs.component';
+import { UploadFileComponent } from './upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { SavedJobsComponent } from './saved-jobs/saved-jobs.component';
     JobsComponent,
     AppliedJobsComponent,
     SavedJobsComponent,
+    UploadFileComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { SavedJobsComponent } from './saved-jobs/saved-jobs.component';
     MatSlideToggleModule,
     MatRadioModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
