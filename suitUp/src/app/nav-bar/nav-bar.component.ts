@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../services/app.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,15 +9,20 @@ import { AppService } from '../services/app.service';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private authService: AuthenticationService) { }
   isCollapsed = true;
   ngOnInit(): void {
   }
 
-  toggleSidebarPin() {
+  toggleSidebarPin(): void {
     this.appService.toggleSidebarPin();
   }
-  toggleSidebar() {
+
+  toggleSidebar(): void {
     this.appService.toggleSidebar();
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }

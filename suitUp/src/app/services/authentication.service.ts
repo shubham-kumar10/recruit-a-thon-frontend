@@ -39,5 +39,6 @@ export class AuthenticationService {
     public logout(): void {
         this.getUserDetails().token = null;
         this.getUserDetails().id = null;
+        this.router.navigate(['login']);
     }
 }
