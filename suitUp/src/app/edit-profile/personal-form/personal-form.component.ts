@@ -50,7 +50,7 @@ export class PersonalFormComponent implements OnInit {
       project: [],
       experience: [],
       skills: [],
-      application: [],
+      applications: [],
     };
 
     const userData: LoggedInUser = this.authService.getUserDetails();

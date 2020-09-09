@@ -13,7 +13,7 @@ export interface Candidate {
     project: Project[];
     experience: Experience[];
     skills: Skill[];
-    application: Application[];
+    applications: Application[];
 }
 
 export interface Education {

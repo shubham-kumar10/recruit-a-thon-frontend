@@ -10,14 +10,16 @@ import { environment } from 'src/environments/environment';
 })
 export class CandidateService {
 
-  constructor(private http: HttpClient, private authService: AuthenticationService) { }
+  constructor (private http: HttpClient, private authService: AuthenticationService) { }
   private candidateDetails: Candidate;
+
   candidateUrl = environment.baseUrl + 'profile';
   commonUrl = environment.baseUrl + 'edit';
   educationUrl = 'education';
   experienceUrl = 'project';
   projectUrl = 'experience';
   skillUrl = 'skills';
+  profilePicture: any;
 
   getCandidateDetails(): Candidate {
     return this.candidateDetails;
@@ -67,5 +69,25 @@ export class CandidateService {
     headers = headers.set('Authorization', 'Bearer ' + this.authService.getUserDetails().token);
     const url: string = this.commonUrl + '/' + this.getCandidateDetails().id + '/' + this.skillUrl;
     return this.http.post<Skill>(url, SkillDetails, { headers });
+  }
+
+  statusfilter(status: string) {
+    const list = this.getCandidateDetails().applications.filter(item => item.status === status);
+    return list;
+  }
+
+  uploadFile(file: FormData): Observable<any> {
+    console.log(file);
+    const url = this.candidateUrl + '/image/' + this.candidateDetails.id;
+    return this.http.post<any>(url, file);
+  }
+
+  getProfilePicture(): string {
+    const url = this.candidateUrl + '/image/' + this.candidateDetails.id;
+    let retrieveResonse;
+    this.http.get(url).subscribe(
+      (response) => { retrieveResonse = 'data:image/jpeg;base64,' + response; });
+    this.profilePicture = retrieveResonse;
+    return retrieveResonse;
   }
 }
