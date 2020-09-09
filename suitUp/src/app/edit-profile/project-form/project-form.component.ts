@@ -67,10 +67,12 @@ export class ProjectFormComponent implements OnInit {
   }
 
   addProjectDetails() {
-    this.data = this.candidateService.getCandidateDetails();
-    this.data.project = this.projectDetailsForm.value.project;
-    this.data.skills = this.projectDetailsForm.value.skills;
-    this.candidateService.setCandidateDetails(this.data);
+    if (this.projectDetailsForm.dirty) {
+      this.data = this.candidateService.getCandidateDetails();
+      this.data.project = this.projectDetailsForm.value.project;
+      this.data.skills = this.projectDetailsForm.value.skills;
+      this.candidateService.setCandidateDetails(this.data);
+    }
   }
 
 }
