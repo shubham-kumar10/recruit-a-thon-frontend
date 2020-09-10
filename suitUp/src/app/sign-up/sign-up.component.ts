@@ -32,7 +32,7 @@ export class SignUpComponent implements OnInit {
 
     ngOnInit() {
         this.signUpForm = this.formBuilder.group({
-            username: ['', [Validators.required, this.isUsernameTaken]],
+            username: ['', [Validators.required, this.isUsernameTaken, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
             firstname: ['', [Validators.required]],
             lastname: ['', [Validators.required]],
             password: ['', [Validators.required]],
@@ -40,7 +40,7 @@ export class SignUpComponent implements OnInit {
                 '',
                 [Validators.required, this.matchConfirmPassword.bind(this)],
             ],
-            contact: ['', [Validators.required]],
+            contact: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
         });
     }
     public get username() {
