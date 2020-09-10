@@ -41,4 +41,11 @@ export class AuthenticationService {
         this.getUserDetails().id = null;
         this.router.navigate(['login']);
     }
+
+    public isLoggedIn(): boolean {
+        if (this.getUserDetails()) {
+            return true;
+        }
+        return false;
+    }
 }

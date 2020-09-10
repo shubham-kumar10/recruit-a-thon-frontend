@@ -9,13 +9,14 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { AppliedJobsComponent } from './applied-jobs/applied-jobs.component';
 import { SavedJobsComponent } from './saved-jobs/saved-jobs.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: SignUpComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'profile', component: ProfileComponent },
   { path: 'editprofile', component: EditProfileComponent },
   { path: 'jobs', component: JobsComponent },
