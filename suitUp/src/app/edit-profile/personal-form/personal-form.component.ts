@@ -16,6 +16,7 @@ export class PersonalFormComponent implements OnInit {
   isOptional = true;
   isChecked = false;
   email = this.authService.getUserDetails() ? this.authService.getUserDetails().username : null;
+  contact = this.authService.getUserDetails() ? this.authService.getUserDetails().contactnumber : null;
   constructor(private fb: FormBuilder, private candidateService: CandidateService, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
@@ -32,7 +33,7 @@ export class PersonalFormComponent implements OnInit {
       role: ['', Validators.required]
     });
 
-    this.personalDetailsForm.patchValue({ email: this.email });
+    this.personalDetailsForm.patchValue({ email: this.email, contact: this.contact });
   }
 
   addCandidateDetails(): void {
