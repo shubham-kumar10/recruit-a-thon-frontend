@@ -11,68 +11,69 @@
                         <div *ngFor="let education of educationDetailsForm.get('educations')['controls']; let i = index"
                             [formGroupName]="i">
 
-                    <div class="form-group row">
-                        <label for="school" class="col-sm-2 col-form-label text-nowrap">Institute Name:</label>
-                        <div class="col-xs-4">
-                            <input type="text" id='school' maxlength="20"
-                                onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
-                                class="form-control" placeholder="Enter your school name"
-                                formControlName="school" required>
-                        </div>&nbsp;&nbsp;&nbsp;
-                        <label for="board" class="col-sm-2 col-form-label text-nowrap">Board/ Degree:</label>
-                        <div class="col-xs-4">
-                            <input class="form-control" id="board"
-                                placeholder="Enter your board/degree" type="text"
-                                onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
-                                formControlName="board" required>
-                        </div>
+                            <div class="form-group row">
+                                <label for="institution" class="col-sm-2 col-form-label text-nowrap">Institute
+                                    Name:</label>
+                                <div class="col-xs-4">
+                                    <input type="text" id='institution' maxlength="20"
+                                        onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
+                                        class="form-control" placeholder="Enter your institution name"
+                                        formControlName="institution" required>
+                                </div>&nbsp;&nbsp;&nbsp;
+                                <label for="degree" class="col-sm-2 col-form-label text-nowrap">degree/ Degree:</label>
+                                <div class="col-xs-4">
+                                    <input class="form-control" id="degree" placeholder="Enter your degree/degree"
+                                        type="text"
+                                        onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
+                                        formControlName="degree" required>
+                                </div>
 
-                        <div class="col-xs-4">
-                            <button class="float-left" mat-icon-button color="primary" aria-label="Add"
-                                (click)="addEducationFormGroup()" matTooltip="Add">
-                                <mat-icon>add_circle_outline</mat-icon>
-                            </button>
-                            <button class="float-left" mat-icon-button color="primary"
-                                aria-label="Remove/clear" (click)="removeOrClearEducation(i)"
-                                matTooltip="Remove">
-                                <mat-icon>highlight_off</mat-icon>
-                            </button>
-                        </div>
+                                <div class="col-xs-4">
+                                    <button class="float-left" mat-icon-button color="primary" aria-label="Add"
+                                        (click)="addEducationFormGroup()" matTooltip="Add">
+                                        <mat-icon>add_circle_outline</mat-icon>
+                                    </button>
+                                    <button class="float-left" mat-icon-button color="primary" aria-label="Remove/clear"
+                                        (click)="removeOrClearEducation(i)" matTooltip="Remove">
+                                        <mat-icon>highlight_off</mat-icon>
+                                    </button>
+                                </div>
 
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="description" class="col-sm-2 col-form-label text-nowrap">Stream:</label>
+                                <div class="col-xs-4">
+                                    <input type="text" id='description' maxlength="15"
+                                        onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
+                                        class="form-control" placeholder="Enter your stream/major"
+                                        formControlName="description" required>
+                                </div>&nbsp;&nbsp;&nbsp;
+                                <label for="startDate" class="col-sm-2 col-form-label text-nowrap">Starting
+                                    date:</label>
+                                <div class="col-xs-4">
+                                    <input type="date" id="startDate" class="form-control" placeholder="dd-mm-yyyy"
+                                        value="" formControlName="startDate" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="zipcode" class="col-sm-2 col-form-label text-nowrap">Percentage(%):</label>
+                                <div class="col-xs-4">
+                                    <input type="text" class="form-control" id="percentage"
+                                        placeholder="Enter your percentage"
+                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                                        maxlength="3" formControlName="percentage" required>
+                                </div>&nbsp;&nbsp;&nbsp;
+                                <label for="endDate" class="col-sm-2 col-form-label text-nowrap">Ending date:</label>
+                                <div class="col-xs-4">
+                                    <input type="date" id="endDate" class="form-control" placeholder="dd-mm-yyyy"
+                                        value="" formControlName="endDate" required>
+                                </div>
+                            </div>
+                            <hr />
+                        </div>
                     </div>
-
-                    <div class="form-group row">
-                        <label for="stream" class="col-sm-2 col-form-label text-nowrap">Stream:</label>
-                        <div class="col-xs-4">
-                            <input type="text" id='stream' maxlength="15"
-                                onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
-                                class="form-control" placeholder="Enter your stream"
-                                formControlName="stream" required>
-                        </div>&nbsp;&nbsp;&nbsp;
-                        <label for="sdate" class="col-sm-2 col-form-label text-nowrap">Starting date:</label>
-                        <div class="col-xs-4">
-                            <input type="date" id="sdate" class="form-control" placeholder="dd-mm-yyyy" value=""
-                                formControlName="sdate" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="zipcode" class="col-sm-2 col-form-label text-nowrap">Percentage(%):</label>
-                        <div class="col-xs-4">
-                            <input type="text" class="form-control" id="percentage"
-                                placeholder="Enter your percentage"
-                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                                maxlength="3" formControlName="percentage" required>
-                        </div>&nbsp;&nbsp;&nbsp;
-                        <label for="edate" class="col-sm-2 col-form-label text-nowrap">Ending date:</label>
-                        <div class="col-xs-4">
-                            <input type="date" id="edate" class="form-control" placeholder="dd-mm-yyyy" value=""
-                                formControlName="edate" required>
-                        </div>
-                    </div>
-                    <hr/>
-                </div>
-            </div>
                 </div>
             </div>
         </div>

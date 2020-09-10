@@ -12,15 +12,15 @@
               <div *ngFor="let project of projectDetailsForm.get('project')['controls']; let i = index"
                 [formGroupName]="i">
                 <div class="form-group row">
-                  <label for="projtitle" class="col-sm-2 col-form-label text-nowrap">Project title {{i+1}}:</label>
+                  <label for="name" class="col-sm-2 col-form-label text-nowrap">Project title {{i+1}}:</label>
                   <div class="col-xs-6">
-                    <input type="text" id='projtitle'
-                      class="form-control" placeholder="Enter your project title" formControlName="projtitle" required>
+                    <input type="text" id='name' class="form-control" placeholder="Enter your project title"
+                      formControlName="name" required>
                   </div>&nbsp;&nbsp;&nbsp;
-                  <label for="sdate" class="col-sm-2 col-form-label text-nowrap">Starting date:</label>
+                  <label for="startDate" class="col-sm-2 col-form-label text-nowrap">Starting date:</label>
                   <div class="col-xs-4">
-                    <input type="date" id="sdate" class="form-control" placeholder="dd-mm-yyyy" value=""
-                      formControlName="sdate" required>
+                    <input type="date" id="startDate" class="form-control" placeholder="dd-mm-yyyy" value=""
+                      formControlName="startDate" required>
                   </div>
 
                   <div class="col-xs-4">
@@ -38,13 +38,13 @@
                 <div class="form-group row">
                   <label for="description" class="col-sm-2 col-form-label text-nowrap">Description:</label>
                   <div class="col-xs-4">
-                    <input type="text" id='degree'
-                      class="form-control" placeholder="Describe your project" formControlName="description" required>
+                    <input type="text" id='degree' class="form-control" placeholder="Describe your project"
+                      formControlName="description" required>
                   </div>&nbsp;&nbsp;&nbsp;
-                  <label for="edate" class="col-sm-2 col-form-label text-nowrap">Ending date:</label>
+                  <label for="endDate" class="col-sm-2 col-form-label text-nowrap">Ending date:</label>
                   <div class="col-xs-4">
-                    <input type="date" id="edate" class="form-control" placeholder="dd-mm-yyyy" value=""
-                      formControlName="edate" required>
+                    <input type="date" id="endDate" class="form-control" placeholder="dd-mm-yyyy" value=""
+                      formControlName="endDate" required>
                   </div>
                 </div>
 
@@ -73,7 +73,7 @@
           <div class="card-body">
 
             <div class="form-group row">
-              <label for="projtitle" class="col-sm-2 col-form-label text-nowrap">Add your skills:</label>
+              <label for="name" class="col-sm-2 col-form-label text-nowrap">Add your skills:</label>
 
               <div formArrayName="skills">
                 <div class="row" *ngFor="let skill of projectDetailsForm.get('skills')['controls']; let i = index"

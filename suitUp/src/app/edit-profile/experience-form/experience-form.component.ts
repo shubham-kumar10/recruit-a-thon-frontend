@@ -36,12 +36,12 @@ export class ExperienceFormComponent implements OnInit {
 
   private createExperienceFormGroup(): FormGroup {
     return new FormGroup({
-      position: new FormControl(''),
-      emptype: new FormControl(''),
+      designation: new FormControl(''),
+      type: new FormControl(''),
       location: new FormControl(''),
-      company: new FormControl(''),
-      sdate: new FormControl(''),
-      edate: new FormControl(''),
+      organization: new FormControl(''),
+      startDate: new FormControl(''),
+      endDate: new FormControl(''),
       current: new FormControl(''),
     });
   }

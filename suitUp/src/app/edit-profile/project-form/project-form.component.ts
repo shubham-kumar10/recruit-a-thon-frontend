@@ -58,9 +58,9 @@ export class ProjectFormComponent implements OnInit {
 
   private createProjectFormGroup(): FormGroup {
     return new FormGroup({
-      projtitle: new FormControl(''),
-      sdate: new FormControl(''),
-      edate: new FormControl(''),
+      name: new FormControl(''),
+      startDate: new FormControl(''),
+      endDate: new FormControl(''),
       description: new FormControl(''),
       ongoing: new FormControl(''),
     });

@@ -35,11 +35,11 @@ export class EducationFormComponent implements OnInit {
 
   private createEducationFormGroup(): FormGroup {
     return new FormGroup({
-      school: new FormControl(''),
-      board: new FormControl(''),
-      sdate: new FormControl(''),
-      edate: new FormControl(''),
-      stream: new FormControl(''),
+      institution: new FormControl(''),
+      degree: new FormControl(''),
+      startDate: new FormControl(''),
+      endDate: new FormControl(''),
+      description: new FormControl(''),
       percentage: new FormControl(''),
     });
   }
