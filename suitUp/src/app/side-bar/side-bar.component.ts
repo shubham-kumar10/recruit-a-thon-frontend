@@ -33,9 +33,9 @@ export class SideBarComponent implements OnInit {
     }
     if (this.candidateService.getCandidateDetails()) {
       this.headLine = this.candidateService.getCandidateDetails().experience[0].designation;
-    } else if (this.authService.getUserDetails().role) {
+    } /*else if (this.authService.getUserDetails().role) {
       this.headLine = this.authService.getUserDetails().role;
-    } else {
+    } */else {
       this.headLine = null;
     }
   }

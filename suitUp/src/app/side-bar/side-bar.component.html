@@ -2,7 +2,7 @@
 
   <div class="sidebar-profile d-flex flex-column justify-content-center pt-5 pb-3">
     <div class="picture-wrapper mb-4">
-      <div class="user-picture m-auto link" (click)="changePicture()">
+      <div class="user-picture m-auto pointer-link" (click)="changePicture()">
         <div *ngIf="this.candidateService.profilePicture">
           <img [src]="this.candidateService.profilePicture" class="img-fluid">
         </div>

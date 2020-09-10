@@ -21,12 +21,12 @@
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"
                                             type="text" id="exampleFirstName" placeholder="First Name"
                                             onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
-                                            formControlName="firstname" minlength="3" maxlength="10" required>
+                                            formControlName="firstname" minlength="3" maxlength="30" required>
                                     </div>
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="text"
                                             id="exampleFirstName" placeholder="Last Name" formControlName="lastname"
                                             onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'
-                                            minlength="3" maxlength="10" required>
+                                            minlength="3" maxlength="30" required>
                                     </div>
                                     <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)"
                                         class="offset-sm-1 text-danger">
@@ -71,7 +71,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input class="form-control form-control-user" type="password"
-                                            id="examplePasswordInput" minlength="5" maxlength="15"
+                                            id="examplePasswordInput" minlength="5" maxlength="30"
                                             placeholder="Password" formControlName="password" required>
                                     </div>
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="password"
@@ -87,7 +87,7 @@
                                             Password must be at least 5 characters long.
                                         </div>
                                     </div>
-                                    <div class="text-danger"
+                                    <div class="offset-sm-1 text-danger"
                                         *ngIf="signUpForm.get('confirmPassword').hasError('nomatch')">
                                         Password
                                         and Confirm Password do not match</div>
