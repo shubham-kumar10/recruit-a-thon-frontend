@@ -11,6 +11,7 @@ import { AppliedJobsComponent } from './applied-jobs/applied-jobs.component';
 import { SavedJobsComponent } from './saved-jobs/saved-jobs.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AddJobsComponent } from './add-jobs/add-jobs.component';
+import { SearchAreaComponent } from './search-area/search-area.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'appliedjobs', component: AppliedJobsComponent },
   { path: 'savedjobs', component: SavedJobsComponent },
   { path: 'addjobs', component: AddJobsComponent },
+  { path: 'search', component: SearchAreaComponent }
 ];
 
 @NgModule({

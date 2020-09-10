@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
-import { Errors } from '../constants/errors.constants';
+import { Alerts } from '../constants/errors.constants';
 
 @Component({
     selector: 'app-login',
@@ -54,11 +54,11 @@ export class LoginComponent implements OnInit {
                 (data) => {
                     this.authService.setUserDetails(data);
                     this.errorMessage = 'Logged In successfully';
-                    this.errorType = Errors.SUCCESS;
+                    this.errorType = Alerts.SUCCESS;
                     this.goToProfile();
                 },
                 (error) => {
-                    this.errorType = Errors.DANGER;
+                    this.errorType = Alerts.DANGER;
                     this.errorMessage = error.error.message;
                 }
             );

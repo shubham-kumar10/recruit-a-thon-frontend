@@ -36,12 +36,13 @@ import { JobsComponent } from './jobs/jobs.component';
 import { AppliedJobsComponent } from './applied-jobs/applied-jobs.component';
 import { SavedJobsComponent } from './saved-jobs/saved-jobs.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
-// import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
 import { AddJobsComponent } from './add-jobs/add-jobs.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { DatePipe } from '@angular/common';
+import { ProfileCardComponent } from './profile-card/profile-card.component';
+import { SearchAreaComponent } from './search-area/search-area.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { DatePipe } from '@angular/common';
     SavedJobsComponent,
     UploadFileComponent,
     AddJobsComponent,
-    // ProfileCardComponent,
+    ProfileCardComponent,
+    SearchAreaComponent,
   ],
   imports: [
     BrowserModule,

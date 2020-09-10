@@ -4,6 +4,7 @@ import { AuthenticationService } from './authentication.service';
 import { Observable } from 'rxjs';
 import { Candidate, Education, Experience, Project, Skill } from '../models/candidate.model';
 import { environment } from 'src/environments/environment';
+import { Profile } from '../models/profile.model';
 
 @Injectable({
   providedIn: 'root'
@@ -89,5 +90,12 @@ export class CandidateService {
       (response) => { retrieveResonse = 'data:image/jpeg;base64,' + response; });
     this.profilePicture = retrieveResonse;
     return retrieveResonse;
+  }
+
+  getAllCandidates(): Observable<Profile[]> {
+    const url = this.candidateUrl + '/all';
+    let headers = new HttpHeaders();
+    headers = headers.set('Authorization', 'Bearer ' + this.authService.getUserDetails().token);
+    return this.http.get<Profile[]>(url);
   }
 }
