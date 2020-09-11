@@ -26,7 +26,6 @@ export class CandidateService {
   }
 
   setCandidateDetails(candidateDetails: Candidate): void {
-    this.profilePicture = 'data:image/jpeg;base64,' + candidateDetails.profilePicture;
     this.candidateDetails = candidateDetails;
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
-import { Candidate } from 'src/app/models/candidate.model';
+import { Candidate, Experience } from 'src/app/models/candidate.model';
 import { CandidateService } from 'src/app/services/candidate.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class ExperienceFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.experienceDetailsForm = this.fb.group({
-      experience: this.fb.array([this.createExperienceFormGroup()]),
+      experiences: this.fb.array([this.createExperienceFormGroup()]),
     });
   }
 
@@ -49,7 +49,7 @@ export class ExperienceFormComponent implements OnInit {
   addExperienceDetails() {
     if (this.experienceDetailsForm.dirty) {
       this.data = this.candidateService.getCandidateDetails();
-      this.data.experience = this.experienceDetailsForm.value.experience;
+      this.data.experience = this.experienceDetailsForm.value.experiences;
       this.candidateService.setCandidateDetails(this.data);
     }
   }
