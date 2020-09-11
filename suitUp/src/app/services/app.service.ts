@@ -7,7 +7,6 @@ export class AppService {
 
   isSidebarPinned = false;
   isSidebarToggeled = false;
-  stepperIndex: number;
 
   constructor() { }
 

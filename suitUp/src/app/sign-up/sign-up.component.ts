@@ -8,7 +8,7 @@ import {
 import { User } from '../models/user';
 import { SignUpService } from '../services/sign-up.service';
 import { Router } from '@angular/router';
-import { Errors } from '../constants/errors.constants';
+import { Alerts } from '../constants/errors.constants';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -108,7 +108,7 @@ export class SignUpComponent implements OnInit {
             (data) => {
                 this.authService.setUserDetails(data);
                 this.userCreated = true;
-                this.errorType = Errors.SUCCESS;
+                this.errorType = Alerts.SUCCESS;
                 this.errorMessage = 'Signed Up Successfull.' + 'Logging you in.';
                 setTimeout(() => {
                     this.navigateToEditProfile();
@@ -116,7 +116,7 @@ export class SignUpComponent implements OnInit {
             },
             (error) => {
                 if (error.status === 500) {
-                    this.errorType = Errors.DANGER;
+                    this.errorType = Alerts.DANGER;
                     this.errorMessage = error.error.message;
                     this.userCreated = false;
                 }

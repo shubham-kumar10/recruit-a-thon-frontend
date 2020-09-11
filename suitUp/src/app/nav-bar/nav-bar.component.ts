@@ -11,8 +11,12 @@ import { CandidateService } from '../services/candidate.service';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private appService: AppService, private authService: AuthenticationService,
-    private candidateService: CandidateService, private router: Router) { }
+  constructor(
+    private appService: AppService,
+    private authService: AuthenticationService,
+    private candidateService: CandidateService,
+    private router: Router
+  ) { }
   isCollapsed = true;
   ngOnInit(): void {
   }
@@ -29,5 +33,9 @@ export class NavBarComponent implements OnInit {
     this.authService.setUserDetails(null);
     this.candidateService.setCandidateDetails(null);
     this.router.navigate(['login']);
+  }
+
+  goToSearch(): void {
+    this.router.navigate(['search']);
   }
 }
