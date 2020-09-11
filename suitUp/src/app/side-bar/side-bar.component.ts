@@ -3,6 +3,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { CandidateService } from '../services/candidate.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UploadFileComponent } from '../upload-file/upload-file.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
@@ -11,8 +12,12 @@ import { UploadFileComponent } from '../upload-file/upload-file.component';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService, public candidateService: CandidateService,
-    private dialog: MatDialog) { }
+  constructor(
+    private authService: AuthenticationService,
+    public candidateService: CandidateService,
+    private dialog: MatDialog,
+    private router: Router
+  ) { }
 
   firstname: string;
   lastname: string;
@@ -31,13 +36,17 @@ export class SideBarComponent implements OnInit {
       this.firstname = this.authService.getUserDetails().firstname;
       this.lastname = this.authService.getUserDetails().lastname;
     }
-    if (this.candidateService.getCandidateDetails()) {
-      this.headLine = this.candidateService.getCandidateDetails().experience[0].designation;
-    } else if (this.authService.getUserDetails().role) {
-      this.headLine = this.authService.getUserDetails().role;
-    } else {
-      this.headLine = null;
-    }
+    this.candidateService.getCandidateProfile().subscribe(
+      (response) => {
+        this.headLine = response.experience[0].designation;
+        this.candidateService.setCandidateDetails(response);
+      },
+      (error) => {
+        if (error.error.code === 'CANDIDATE_DOES_NOT_EXIST') {
+          this.router.navigate(['editprofile']);
+        }
+      });
+    this.headLine = !this.headLine ? this.authService.getUserDetails().role : undefined;
   }
 
 }

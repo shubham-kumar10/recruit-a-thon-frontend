@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { Candidate } from '../models/candidate.model';
 import { CandidateService } from '../services/candidate.service';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -18,7 +19,11 @@ export class EditProfileComponent implements OnInit {
   isOptional = true;
   isChecked = false;
 
-  constructor(private candidateService: CandidateService, private router: Router) { }
+  constructor(
+    private candidateService: CandidateService,
+    private router: Router,
+    private authService: AuthenticationService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -28,9 +33,8 @@ export class EditProfileComponent implements OnInit {
       (data) => {
         console.log(data);
         this.router.navigate(['jobs']);
-
       });
-
+    this.authService.updateUserDetails(this.authService.getUserDetails()).subscribe();
   }
 
 }

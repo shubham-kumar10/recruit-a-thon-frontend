@@ -67,7 +67,7 @@ export class PersonalFormComponent implements OnInit {
     };
 
     const userData: LoggedInUser = this.authService.getUserDetails();
-    userData.role = this.personalDetailsForm.get('role').value;
+    userData.role = this.personalDetailsForm.get('role').value ? 'RECRUITER' : 'CANDIDATE';
     userData.contactnumber = this.personalDetailsForm.get('contact').value;
     userData.username = this.personalDetailsForm.get('email').value;
 
