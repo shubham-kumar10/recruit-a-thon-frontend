@@ -5,7 +5,8 @@
         <div class="row">
           <h4 class="col-lg-6 pt-2">Personal Details</h4>
           <div class="col-lg-6">
-            <a class="btn btn-outline-lightning rounded-0 px-2 py-1 waves-effect waves-light float-right">
+            <a routerLink="/editprofile"
+              class="btn btn-outline-lightning rounded-0 px-2 py-1 waves-effect waves-light float-right">
               <i class="far fa-edit"></i>
             </a>
           </div>
@@ -44,9 +45,9 @@
           </div>
         </div>
         <div *ngIf="candidateDetails.education.length > 0; else addEducation">
-          <div class="card-body pb-0" *ngFor="let data of candidateDetails.education">
+          <div class="card-body pb-0" *ngFor="let data of candidateDetails.education; let i = index">
             <div class="row mb-1">
-              <div class="col-4 p-0">Institution:</div>
+              <div class="col-4 p-0">Institution {{i+1}}:</div>
               <div class="col-8">{{data.institution}}</div>
             </div>
             <div class="row mb-1">
@@ -87,9 +88,9 @@
           </div>
         </div>
         <div *ngIf="candidateDetails.experience.length > 0;else addExperience">
-          <div class="card-body pb-0" *ngFor="let data of candidateDetails.experience">
+          <div class="card-body pb-0" *ngFor="let data of candidateDetails.experience; let i = index">
             <div class="row mb-1">
-              <div class="col-4 p-0">Organization:</div>
+              <div class="col-4 p-0">Organization {{i+1}}:</div>
               <div class="col-8">{{data.organization}}</div>
             </div>
             <div class="row mb-1">
@@ -126,9 +127,9 @@
           </div>
         </div>
         <div *ngIf="candidateDetails.project.length > 0; else addProject">
-          <div class="card-body" *ngFor="let data of candidateDetails.project">
+          <div class="card-body" *ngFor="let data of candidateDetails.project; let i = index">
             <div class="row mb-1">
-              <div class="col-4 p-0">Title:</div>
+              <div class="col-4 p-0">Title {{i+1}}:</div>
               <div class="col-8">{{data.name}} ({{data.startDate | date}} - {{data.endDate | date}})</div>
             </div>
             <div class="row">

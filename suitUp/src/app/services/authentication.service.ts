@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { User, LoggedInUser } from '../models/user';
+import { LoggedInUser } from '../models/user';
 
 @Injectable({
     providedIn: 'root',
@@ -34,12 +34,6 @@ export class AuthenticationService {
         let headers = new HttpHeaders();
         headers = headers.set('Authorization', 'Basic ' + btoa(user + ':' + password));
         return this.httpClient.get<LoggedInUser>(this.authenticationApiUrl, { headers });
-    }
-
-    public logout(): void {
-        this.getUserDetails().token = null;
-        this.getUserDetails().id = null;
-        this.router.navigate(['login']);
     }
 
     public isLoggedIn(): boolean {

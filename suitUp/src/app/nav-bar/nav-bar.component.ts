@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppService } from '../services/app.service';
 import { AuthenticationService } from '../services/authentication.service';
+import { CandidateService } from '../services/candidate.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,7 +11,8 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private appService: AppService, private authService: AuthenticationService) { }
+  constructor(private appService: AppService, private authService: AuthenticationService,
+    private candidateService: CandidateService, private router: Router) { }
   isCollapsed = true;
   ngOnInit(): void {
   }
@@ -22,7 +25,9 @@ export class NavBarComponent implements OnInit {
     this.appService.toggleSidebar();
   }
 
-  logout(): void {
-    this.authService.logout();
+  public logout(): void {
+    this.authService.setUserDetails(null);
+    this.candidateService.setCandidateDetails(null);
+    this.router.navigate(['login']);
   }
 }
