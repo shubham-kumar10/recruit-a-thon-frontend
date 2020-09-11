@@ -1,7 +1,7 @@
 export interface Job {
     jobId: number;
     companyName: string;
-    postedOn: Date;
+    postedOn: string;
     description: string;
     location: string;
     pointOfContact: string;

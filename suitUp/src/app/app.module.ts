@@ -39,6 +39,9 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 // import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
+import { AddJobsComponent } from './add-jobs/add-jobs.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -62,6 +65,7 @@ import { ErrorInterceptor } from './interceptor/error.interceptor';
     AppliedJobsComponent,
     SavedJobsComponent,
     UploadFileComponent,
+    AddJobsComponent,
     // ProfileCardComponent,
   ],
   imports: [
@@ -80,9 +84,10 @@ import { ErrorInterceptor } from './interceptor/error.interceptor';
     MatIconModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDividerModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
