@@ -74,6 +74,18 @@
           </div>
         </ng-template>
       </div>
+      <div class="card-title mb-1 px-3">
+        <div class="row">
+          <h4 class="col-lg-12 pt-2">Your Skills:</h4>
+          <div class="card-body pt-1">
+            <mat-chip-list>
+              <mat-chip *ngFor="let skill of candidateDetails.skills">
+                {{skill.skillName}}
+              </mat-chip>
+            </mat-chip-list>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="col-md-12 col-lg-6 mb-4 align-items-stretch pl-0">
@@ -136,7 +148,8 @@
               <div class="col-4 p-0">About:</div>
             </div>
             <div class="row mb-1">
-              <div class="col-12">{{data.description}}</div>
+              <div class="col-2 p-0">About:</div>
+              <div class="col-10">{{data.description}}</div>
             </div>
           </div>
         </div>
