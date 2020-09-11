@@ -25,6 +25,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
+
 import { EducationFormComponent } from './edit-profile/education-form/education-form.component';
 import { ExperienceFormComponent } from './edit-profile/experience-form/experience-form.component';
 import { PersonalFormComponent } from './edit-profile/personal-form/personal-form.component';
@@ -77,7 +79,8 @@ import { ErrorInterceptor } from './interceptor/error.interceptor';
     MatRadioModule,
     MatIconModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
