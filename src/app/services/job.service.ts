@@ -12,7 +12,7 @@ export class JobService {
   constructor(private http: HttpClient) { }
 
   readonly endpoint = 'jobs';
-  jobUrl: string = environment.baseUrl + this.endpoint;
+  jobUrl: string = environment.appRoot + this.endpoint;
 
   getAllJobs(): Observable<Job[]> {
     return this.http.get<Job[]>(this.jobUrl);

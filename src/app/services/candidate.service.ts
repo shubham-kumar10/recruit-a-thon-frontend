@@ -14,8 +14,8 @@ export class CandidateService {
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
   private candidateDetails: Candidate;
 
-  candidateUrl = environment.baseUrl + 'profile';
-  commonUrl = environment.baseUrl + 'edit';
+  candidateUrl = environment.appRoot + 'profile';
+  commonUrl = environment.appRoot + 'edit';
   educationUrl = 'education';
   experienceUrl = 'project';
   projectUrl = 'experience';
