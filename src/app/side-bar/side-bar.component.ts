@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class SideBarComponent implements OnInit {
 
   constructor(
-    private authService: AuthenticationService,
+    public authService: AuthenticationService,
     public candidateService: CandidateService,
     private dialog: MatDialog,
     private router: Router
