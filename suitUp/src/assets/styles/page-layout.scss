@@ -15,14 +15,14 @@
 }
 
 .wrapper {
-  height: auto;
+  height: 100%;
 
   main {
     display: flex;
     height: 100%;
 
     .pages {
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
     .overlay {
