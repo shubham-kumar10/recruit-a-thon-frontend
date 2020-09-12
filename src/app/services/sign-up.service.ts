@@ -10,7 +10,7 @@ import { User } from '../models/user';
 })
 export class SignUpService {
 
-    public url: string = environment.baseUrl + "signUp";
+    public url: string = environment.appRoot + "signUp";
     public isRecruiter: boolean;
     constructor(private _httpClient: HttpClient) { }
 

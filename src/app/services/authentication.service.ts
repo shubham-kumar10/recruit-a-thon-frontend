@@ -10,7 +10,7 @@ import { LoggedInUser } from '../models/user';
 })
 export class AuthenticationService {
 
-    private authenticationApiUrl: string = environment.baseUrl + 'authenticate';
+    private authenticationApiUrl: string = environment.appRoot + 'authenticate';
     private userDetails: LoggedInUser;
 
     constructor(private httpClient: HttpClient, public router: Router) { }
@@ -26,7 +26,7 @@ export class AuthenticationService {
     updateUserDetails(userData: LoggedInUser): Observable<boolean> {
         let headers = new HttpHeaders();
         headers = headers.set('Authorization', 'Bearer ' + this.getUserDetails().token);
-        const url: string = environment.baseUrl + 'user';
+        const url: string = environment.appRoot + 'user';
         return this.httpClient.put<boolean>(url, userData, { headers });
     }
 

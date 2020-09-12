@@ -12,9 +12,9 @@ import { environment } from 'src/environments/environment';
 export class ApplicationService {
 
   constructor(private http: HttpClient, private authService: AuthenticationService, private candidateService: CandidateService) { }
-  applyUrl = environment.baseUrl + 'apply';
-  withdrawUrl = environment.baseUrl + 'withdraw';
-  saveUrl = environment.baseUrl + 'save';
+  applyUrl = environment.appRoot + 'apply';
+  withdrawUrl = environment.appRoot + 'withdraw';
+  saveUrl = environment.appRoot + 'save';
 
   applyJobs(canId: number, jobId: number): Observable<Candidate> {
     let headers = new HttpHeaders();
