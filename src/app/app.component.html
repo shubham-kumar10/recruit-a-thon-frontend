@@ -4,6 +4,9 @@
   <main>
     <app-side-bar *ngIf="displayBar"></app-side-bar>
     <div class="pages container-fluid p-4">
+      <mat-progress-spinner style="margin:0 auto;" mode="indeterminate" *ngIf="spinnerService.visibility | async">
+      </mat-progress-spinner>
+      <mat-spinner style="margin:0 auto;" [diameter]="50" *ngIf="showSpinner"></mat-spinner>
       <!-- routes will be rendered here -->
       <router-outlet></router-outlet>
       <app-footer *ngIf="displayFooter"></app-footer>
