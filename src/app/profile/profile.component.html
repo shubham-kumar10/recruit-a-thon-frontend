@@ -74,18 +74,26 @@
           </div>
         </ng-template>
       </div>
+
       <div class="card-title mb-1 px-3">
         <div class="row">
           <h4 class="col-lg-12 pt-2">Your Skills:</h4>
-          <div class="card-body pt-1">
-            <mat-chip-list>
-              <mat-chip *ngFor="let skill of candidateDetails.skills">
-                {{skill.skillName}}
-              </mat-chip>
-            </mat-chip-list>
+          <div *ngIf="candidateDetails.skills.length > 0; else addSkills">
+            <div class="card-body pt-1">
+              <mat-chip-list>
+                <mat-chip *ngFor="let skill of candidateDetails.skills">
+                  {{skill.skillName}}
+                </mat-chip>
+              </mat-chip-list>
+            </div>
           </div>
         </div>
       </div>
+      <ng-template #addSkills>
+        <div class="card-body m-1">
+          <alert type="info">Add and showcase your skills.</alert>
+        </div>
+      </ng-template>
     </div>
   </div>
   <div class="col-md-12 col-lg-6 mb-4 align-items-stretch pl-0">

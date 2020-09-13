@@ -1,4 +1,7 @@
 <div class="container-fluid">
+    <alert *ngIf="jobList.length === 0" type="danger">
+        There Are No New Opening Right Now! We Will Notify You When A Listing Comes Up.
+    </alert>
     <div class="row">
         <div class="col-4" *ngFor="let job of jobList">
             <app-jobcard [jobDetails]="job"></app-jobcard>

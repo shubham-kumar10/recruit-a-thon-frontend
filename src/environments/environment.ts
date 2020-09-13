@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  appRoot: 'http://localhost:8083/'
+  // appRoot: 'http://localhost:8083/'
+  appRoot: 'https://suitup-backend.herokuapp.com/'
 };
 
 /*
