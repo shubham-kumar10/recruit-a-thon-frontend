@@ -19,13 +19,13 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: SignUpComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'editprofile', component: EditProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+  { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuardService] },
   { path: 'jobs', component: JobsComponent },
-  { path: 'appliedjobs', component: AppliedJobsComponent },
-  { path: 'savedjobs', component: SavedJobsComponent },
-  { path: 'addjobs', component: AddJobsComponent },
-  { path: 'search', component: SearchAreaComponent }
+  { path: 'appliedjobs', component: AppliedJobsComponent, canActivate: [AuthGuardService] },
+  { path: 'savedjobs', component: SavedJobsComponent, canActivate: [AuthGuardService] },
+  { path: 'addjobs', component: AddJobsComponent, canActivate: [AuthGuardService] },
+  { path: 'search', component: SearchAreaComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({

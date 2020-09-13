@@ -13,6 +13,7 @@
               <div class="text-center">
                 <h4 class="text-dark mb-4">Welcome Back!</h4>
               </div>
+              <alert type="danger" *ngIf="authService.invalidLogIn">Please Login Before Continuing.</alert>
               <alert [type]="errorType">
                 {{errorMessage}}
               </alert>

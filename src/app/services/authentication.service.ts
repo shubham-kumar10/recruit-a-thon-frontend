@@ -12,6 +12,7 @@ export class AuthenticationService {
 
     private authenticationApiUrl: string = environment.appRoot + 'authenticate';
     private userDetails: LoggedInUser;
+    invalidLogIn: boolean;
 
     constructor(private httpClient: HttpClient, public router: Router) { }
 

@@ -1,4 +1,7 @@
 <div class="container-fluid">
+    <alert *ngIf="jobList.length === 0" type="danger">
+        Opps! Looks Like You Have Not Applied For Any Openings.
+    </alert>
     <div class="row">
         <div class="col-4" *ngFor="let job of jobList">
             <app-jobcard [jobDetails]="job"></app-jobcard>
