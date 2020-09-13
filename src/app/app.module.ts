@@ -43,6 +43,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { DatePipe } from '@angular/common';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { SearchAreaComponent } from './search-area/search-area.component';
+import { SpinnerInterceptor } from './interceptor/spinner.interceptor';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -87,9 +89,17 @@ import { SearchAreaComponent } from './search-area/search-area.component';
     MatCheckboxModule,
     MatDialogModule,
     MatChipsModule,
-    MatDividerModule
+    MatDividerModule,
+    MatProgressSpinnerModule
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SpinnerInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { AppService } from './services/app.service';
+import { SpinnerService } from './services/spinner.service';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +17,12 @@ export class AppComponent {
   displayBar = false;
   public baseURLH: any = ['/', '/home'];
   public baseURLF: any = ['/', '/home', '/register', '/login'];
-
-  constructor(private router: Router, private appService: AppService) {
+  showSpinner: boolean;
+  constructor(
+    private router: Router,
+    private appService: AppService,
+    public spinnerService: SpinnerService
+  ) {
     router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
       this.modifyDisplay(event.url);
     });
